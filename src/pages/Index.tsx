@@ -2,7 +2,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Phone, ChevronDown, ArrowRight } from "lucide-react";
 import { useRef } from "react";
 import { Layout } from "@/components/Layout";
-import { Methods } from "@/components/Methods";
 import { QuoteBanner } from "@/components/QuoteBanner";
 import { RegisterForm } from "@/components/RegisterForm";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -226,11 +225,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Methods Section */}
-      <Methods />
-
       {/* Why Us Section */}
-      <section className="py-20 md:py-28 bg-background">
+      <section className="py-20 md:py-28 bg-soft-blue">
         <div className="container-full">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div
