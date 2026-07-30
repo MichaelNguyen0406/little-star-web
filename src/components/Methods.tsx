@@ -34,53 +34,41 @@ export const Methods = () => {
           <p className="text-muted-foreground leading-relaxed mt-4">{s.description}</p>
         </motion.div>
 
-        <div className="max-w-5xl mx-auto space-y-16 md:space-y-24">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 auto-rows-fr">
           {s.items.map((method, index) => {
-            const flipped = index % 2 === 1;
+            const featured = index === 0;
             return (
-              <motion.div
+              <motion.article
                 key={method.tag}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="group grid md:grid-cols-2 gap-8 md:gap-16 items-center"
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ delay: index * 0.08, duration: 0.6 }}
+                className={`group flex flex-col rounded-3xl overflow-hidden bg-card border border-border/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 ${
+                  featured ? "sm:col-span-2" : ""
+                }`}
               >
-                {/* Blob + chữ viết tắt outline cỡ đại */}
-                <div className={`flex justify-center ${flipped ? "md:order-2" : ""}`}>
-                  <div
-                    className={`blob ${flipped ? "blob-alt" : ""} relative overflow-hidden grid place-items-center w-52 h-52 md:w-72 md:h-72 shadow-lg transition-transform duration-500 group-hover:scale-[1.04]`}
-                  >
-                    <img
-                      src={methodImages[index % methodImages.length]}
-                      alt={method.name}
-                      loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/30 to-primary/5" />
-                    <span className="relative font-serif text-4xl md:text-6xl font-extrabold text-white drop-shadow-md select-none tracking-wide">
-                      {method.tag}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Nội dung */}
-                <div className={flipped ? "md:order-1 md:text-right" : ""}>
-                  <span className="font-serif text-6xl md:text-7xl font-bold text-primary/10 leading-none tabular-nums">
-                    {String(index + 1).padStart(2, "0")}
+                <div className={`relative overflow-hidden ${featured ? "aspect-[16/10] sm:aspect-[2/1]" : "aspect-[4/3]"}`}>
+                  <img
+                    src={methodImages[index % methodImages.length]}
+                    alt={method.name}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/55 via-foreground/10 to-transparent" />
+                  <span className="absolute top-4 left-4 inline-flex items-center rounded-full bg-white/90 backdrop-blur px-3.5 py-1.5 font-serif text-sm font-extrabold text-primary shadow-md">
+                    {method.tag}
                   </span>
-                  <h3 className="font-serif text-2xl md:text-3xl text-foreground -mt-6 md:-mt-8 mb-3">
+                </div>
+                <div className="flex flex-col flex-1 p-6">
+                  <h3 className="font-serif text-xl md:text-2xl font-semibold text-foreground mb-2">
                     {method.name}
                   </h3>
-                  <p
-                    className={`text-muted-foreground leading-[1.8] md:text-lg max-w-md ${
-                      flipped ? "md:ml-auto" : ""
-                    }`}
-                  >
+                  <p className="text-sm md:text-[15px] text-muted-foreground leading-relaxed">
                     {method.description}
                   </p>
                 </div>
-              </motion.div>
+              </motion.article>
             );
           })}
         </div>
