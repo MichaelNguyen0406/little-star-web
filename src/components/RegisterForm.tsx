@@ -42,9 +42,9 @@ export const RegisterForm = () => {
         </motion.div>
 
         <div className="max-w-3xl mx-auto drop-shadow-xl">
-          {/* Viền gradient theo hình dạng cắt góc */}
+          {/* Viền màu đơn theo hình dạng cắt góc */}
           <div
-            className="p-[3px] bg-gradient-to-br from-accent via-primary to-secondary"
+            className="p-[3px] bg-primary"
             style={{ clipPath: clip }}
           >
             <motion.form
