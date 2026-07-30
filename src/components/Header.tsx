@@ -25,7 +25,6 @@ export const Header = () => {
     { to: "/about", label: t.nav.about },
     { to: "/mam-non", label: language === "vi" ? "Mầm non" : "Preschool" },
     { to: "/can-thiep", label: language === "vi" ? "Can thiệp" : "Intervention" },
-    { to: "/#services", label: t.nav.services },
     { to: "/blog", label: "Blog" },
     { to: "/#contact", label: t.nav.contact },
   ];
@@ -33,10 +32,10 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 transition-all duration-500",
+        "sticky top-0 z-50 transition-all duration-500 text-white",
         scrolled
-          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
-          : "bg-background/80 backdrop-blur-sm border-b border-transparent"
+          ? "bg-primary shadow-lg"
+          : "bg-primary/95 backdrop-blur-sm"
       )}
     >
       <nav className="container-full">
@@ -48,7 +47,7 @@ export const Header = () => {
               alt="Little Stars Preschool"
               className="h-14 md:h-16 w-auto object-contain"
             />
-            <span className="font-serif text-xl md:text-2xl font-extrabold tracking-tight text-primary">
+            <span className="font-serif text-xl md:text-2xl font-extrabold tracking-tight text-white">
               Little Stars
             </span>
           </Link>
@@ -59,7 +58,7 @@ export const Header = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className="text-xs font-semibold tracking-[0.1em] uppercase text-muted-foreground hover:text-foreground transition-colors duration-300 link-underline"
+                className="text-xs font-semibold tracking-[0.1em] uppercase text-white/85 hover:text-white transition-colors duration-300 link-underline"
               >
                 {link.label}
               </Link>
@@ -69,14 +68,14 @@ export const Header = () => {
           {/* Right side actions */}
           <div className="flex items-center gap-2">
             {/* Language Switcher */}
-            <div className="hidden md:flex items-center bg-muted rounded-full p-1">
+            <div className="hidden md:flex items-center bg-white/15 rounded-full p-1">
               <button
                 onClick={() => setLanguage("vi")}
                 className={cn(
                   "px-3 py-1 text-xs font-semibold rounded-full transition-all duration-300",
                   language === "vi"
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "bg-white text-primary"
+                    : "text-white/80 hover:text-white"
                 )}
               >
                 VI
@@ -86,8 +85,8 @@ export const Header = () => {
                 className={cn(
                   "px-3 py-1 text-xs font-semibold rounded-full transition-all duration-300",
                   language === "en"
-                    ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground"
+                    ? "bg-white text-primary"
+                    : "text-white/80 hover:text-white"
                 )}
               >
                 EN
@@ -106,15 +105,15 @@ export const Header = () => {
             {/* Mobile language toggle */}
             <button
               onClick={toggleLanguage}
-              className="md:hidden p-2 hover:bg-accent/30 rounded-full transition-colors duration-300"
+              className="md:hidden p-2 text-white hover:bg-white/15 rounded-full transition-colors duration-300"
               aria-label="Toggle language"
             >
-              <Globe className="w-5 h-5 text-foreground" />
+              <Globe className="w-5 h-5" />
             </button>
 
             {/* Mobile menu button */}
             <button
-              className="md:hidden p-2 hover:bg-accent/30 rounded-full transition-colors duration-300"
+              className="md:hidden p-2 text-white hover:bg-white/15 rounded-full transition-colors duration-300"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <AnimatePresence mode="wait">
@@ -152,7 +151,7 @@ export const Header = () => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-              className="md:hidden border-t border-border overflow-hidden"
+              className="md:hidden border-t border-white/15 overflow-hidden"
             >
               <div className="py-6 space-y-2">
                 {navLinks.map((link, i) => (
@@ -164,24 +163,24 @@ export const Header = () => {
                   >
                     <Link
                       to={link.to}
-                      className="block px-4 py-3 text-base font-medium hover:bg-accent/20 rounded-lg transition-colors duration-300"
+                      className="block px-4 py-3 text-base font-medium text-white/90 hover:bg-white/10 rounded-lg transition-colors duration-300"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {link.label}
                     </Link>
                   </motion.div>
                 ))}
-                <div className="pt-4 px-4 border-t border-border mt-4">
+                <div className="pt-4 px-4 border-t border-white/15 mt-4">
                   <div className="flex items-center gap-2 mb-4">
-                    <span className="text-sm text-muted-foreground">Ngôn ngữ / Language:</span>
-                    <div className="flex items-center bg-muted rounded-full p-1">
+                    <span className="text-sm text-white/70">Ngôn ngữ / Language:</span>
+                    <div className="flex items-center bg-white/15 rounded-full p-1">
                       <button
                         onClick={() => setLanguage("vi")}
                         className={cn(
                           "px-3 py-1 text-xs font-semibold rounded-full transition-all duration-300",
                           language === "vi"
-                            ? "bg-primary text-primary-foreground"
-                            : "text-muted-foreground"
+                            ? "bg-white text-primary"
+                            : "text-white/80"
                         )}
                       >
                         VI
@@ -191,8 +190,8 @@ export const Header = () => {
                         className={cn(
                           "px-3 py-1 text-xs font-semibold rounded-full transition-all duration-300",
                           language === "en"
-                            ? "bg-primary text-primary-foreground"
-                            : "text-muted-foreground"
+                            ? "bg-white text-primary"
+                            : "text-white/80"
                         )}
                       >
                         EN
