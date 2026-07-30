@@ -118,6 +118,33 @@ const Index = () => {
             >
               {t.hero.urgency}
             </motion.p>
+
+            {/* Chip số liệu */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.4, duration: 0.6 }}
+              className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl"
+            >
+              {[
+                { value: "0–6", label: language === "vi" ? "Độ tuổi vàng" : "Golden age" },
+                { value: "1:1", label: language === "vi" ? "Can thiệp cá nhân" : "Individual support" },
+                { value: "ABA", label: language === "vi" ? "Phương pháp quốc tế" : "Global methods" },
+                { value: "IEP", label: language === "vi" ? "Lộ trình riêng" : "Personalized plan" },
+              ].map((b) => (
+                <div
+                  key={b.value}
+                  className="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15 px-3 py-3 text-center"
+                >
+                  <p className="font-serif text-2xl md:text-3xl font-bold text-accent leading-none mb-1">
+                    {b.value}
+                  </p>
+                  <p className="text-[10px] md:text-[11px] uppercase tracking-wider text-white/80 leading-tight">
+                    {b.label}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
           </motion.div>
 
           {/* Scroll indicator */}
@@ -136,36 +163,6 @@ const Index = () => {
             </motion.div>
           </motion.div>
         </motion.div>
-      </section>
-
-      {/* Trust badges */}
-      <section className="py-8 bg-soft-blue border-y border-border">
-        <div className="container-full">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-            {[
-              { value: "0–6", label: language === "vi" ? "Độ tuổi vàng" : "Golden age" },
-              { value: "1:1", label: language === "vi" ? "Can thiệp cá nhân" : "Individual support" },
-              { value: "ABA", label: language === "vi" ? "Phương pháp quốc tế" : "Global methods" },
-              { value: "IEP", label: language === "vi" ? "Lộ trình riêng" : "Personalized plan" },
-            ].map((badge, index) => (
-              <motion.div
-                key={badge.value}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="p-4"
-              >
-                <p className="font-serif text-2xl md:text-3xl font-bold text-primary mb-1">
-                  {badge.value}
-                </p>
-                <p className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider">
-                  {badge.label}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* Services Section */}
