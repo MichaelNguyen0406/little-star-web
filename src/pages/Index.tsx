@@ -89,11 +89,8 @@ const Index = () => {
             <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl font-extrabold text-white mb-4 leading-[0.95] tracking-tight">
               Little <span className="text-accent">Stars</span>
             </h1>
-            <p className="font-serif text-lg md:text-2xl text-white/90 mb-5 leading-snug max-w-xl">
+            <p className="font-serif text-lg md:text-2xl text-white/90 mb-8 leading-snug max-w-xl">
               {t.hero.title} {t.hero.titleHighlight}
-            </p>
-            <p className="text-sm md:text-base text-white/75 mb-8 leading-relaxed max-w-lg">
-              {t.hero.description}
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
