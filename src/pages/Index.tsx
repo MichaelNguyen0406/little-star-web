@@ -20,6 +20,16 @@ const serviceImages = [
   "https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=900&q=80",
 ];
 
+// Ảnh cho 6 bước đồng hành — TODO: thay bằng ảnh thật
+const processImages = [
+  "https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=800&q=80",
+  "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80",
+  "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80",
+  "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800&q=80",
+  "https://images.unsplash.com/photo-1526634332515-d56c5fd16991?w=800&q=80",
+  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80",
+];
+
 
 const Index = () => {
   const { language } = useLanguage();
@@ -343,54 +353,38 @@ const Index = () => {
             </h2>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
-            {/* Ảnh minh hoạ — TODO: thay bằng ảnh thật hoạt động của trẻ tại trung tâm */}
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              className="lg:sticky lg:top-28"
-            >
-              <div className="relative rounded-3xl overflow-hidden aspect-[4/5] shadow-sm">
-                <img
-                  src="https://images.unsplash.com/photo-1511949860663-92c5c57d48a7?w=900&q=80"
-                  alt={t.process.title}
-                  loading="lazy"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/30 to-transparent" />
-              </div>
-            </motion.div>
-
-            {/* Các bước */}
-            <div className="relative grid sm:grid-cols-2 gap-x-8 gap-y-10">
-              {t.process.steps.map((step, index) => (
-                <motion.div
-                  key={step.title}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.08, duration: 0.6 }}
-                  className="group relative pt-8"
-                >
-                  <div className="absolute top-0 left-0 right-0 h-px bg-border">
-                    <span className="absolute left-0 top-0 h-px w-10 bg-primary transition-all duration-500 group-hover:w-full" />
-                  </div>
-                  <div className="flex items-baseline gap-4 mb-3">
-                    <span className="font-serif text-3xl md:text-4xl text-primary/25 group-hover:text-primary/60 transition-colors tabular-nums">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <h3 className="font-serif text-lg md:text-xl font-semibold text-foreground">
-                      {step.title}
-                    </h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed md:pl-[3.75rem]">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {t.process.steps.map((step, index) => (
+              <motion.article
+                key={step.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ delay: index * 0.08, duration: 0.6 }}
+                className="group flex flex-col rounded-3xl overflow-hidden bg-card border border-border/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
+              >
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <img
+                    src={processImages[index % processImages.length]}
+                    alt={step.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/45 to-transparent" />
+                  <span className="absolute top-4 left-4 w-11 h-11 rounded-full bg-accent text-accent-foreground grid place-items-center font-serif text-lg font-bold shadow-md">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <div className="flex flex-col flex-1 p-6">
+                  <h3 className="font-serif text-lg md:text-xl font-semibold text-foreground mb-2">
+                    {step.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     {step.description}
                   </p>
-                </motion.div>
-              ))}
-            </div>
+                </div>
+              </motion.article>
+            ))}
           </div>
 
         </div>
