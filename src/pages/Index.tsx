@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { Layout } from "@/components/Layout";
 import { Methods } from "@/components/Methods";
 import { Team } from "@/components/Team";
-import { Gallery } from "@/components/Gallery";
+import { Moments } from "@/components/Moments";
 import { QuoteBanner } from "@/components/QuoteBanner";
 import { RegisterForm } from "@/components/RegisterForm";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -399,8 +399,8 @@ const Index = () => {
       {/* Team Section */}
       <Team />
 
-      {/* Gallery Section (carousel mũi tên) */}
-      <Gallery />
+      {/* Moments Section (băng ảnh chạy) */}
+      <Moments />
 
       {/* Register Form Section */}
       <RegisterForm />
