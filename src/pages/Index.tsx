@@ -92,12 +92,13 @@ const Index = () => {
               {t.hero.subtitle}
             </motion.div>
 
-            <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-white mb-6 leading-[1.05] tracking-tight">
-              {t.hero.title}
-              <br />
-              <span className="text-accent">{t.hero.titleHighlight}</span>
+            <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl font-extrabold text-white mb-4 leading-[0.95] tracking-tight">
+              Little <span className="text-accent">Stars</span>
             </h1>
-            <p className="text-base md:text-lg text-white/85 mb-10 leading-relaxed max-w-xl">
+            <p className="font-serif text-lg md:text-2xl text-white/90 mb-5 leading-snug max-w-xl">
+              {t.hero.title} {t.hero.titleHighlight}
+            </p>
+            <p className="text-sm md:text-base text-white/75 mb-8 leading-relaxed max-w-lg">
               {t.hero.description}
             </p>
 
