@@ -12,9 +12,6 @@ import { Label } from "@/components/ui/label";
 export const RegisterForm = () => {
   const { language } = useLanguage();
   const s = sections[language].register;
-  // Hình dạng riêng: khung 4 góc khấc (notch) kiểu bảng khung
-  const n = "18px";
-  const clip = `polygon(${n} 0, calc(100% - ${n}) 0, calc(100% - ${n}) ${n}, 100% ${n}, 100% calc(100% - ${n}), calc(100% - ${n}) calc(100% - ${n}), calc(100% - ${n}) 100%, ${n} 100%, ${n} calc(100% - ${n}), 0 calc(100% - ${n}), 0 ${n}, ${n} ${n})`;
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -41,21 +38,14 @@ export const RegisterForm = () => {
           </h2>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto drop-shadow-lg">
-          {/* Viền màu đơn theo hình dạng khung góc khấc */}
-          <div
-            className="p-[2px] bg-primary"
-            style={{ clipPath: clip }}
-          >
-            <motion.form
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              onSubmit={handleSubmit}
-              className="bg-card p-8 md:p-14 space-y-6"
-              style={{ clipPath: clip }}
-            >
+        <motion.form
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          onSubmit={handleSubmit}
+          className="max-w-4xl mx-auto rounded-[2.5rem] bg-card border-2 border-primary/20 shadow-sm p-8 md:p-12 space-y-6"
+        >
           <div className="grid sm:grid-cols-2 gap-5">
             <div className="space-y-2">
               <Label htmlFor="parent">{s.fields.parent} *</Label>
@@ -82,9 +72,7 @@ export const RegisterForm = () => {
             {s.submit}
             <Send className="ml-2 w-4 h-4" />
           </Button>
-            </motion.form>
-          </div>
-        </div>
+        </motion.form>
       </div>
     </section>
   );
