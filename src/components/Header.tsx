@@ -39,13 +39,21 @@ export const Header = () => {
       )}
     >
       <nav className="container-full">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div
+          className={cn(
+            "flex items-center justify-between transition-all duration-300",
+            scrolled ? "h-14 md:h-16" : "h-16 md:h-20"
+          )}
+        >
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5" aria-label="Little Stars Preschool">
             <img
               src="/images/logo.webp"
               alt="Little Stars Preschool"
-              className="h-14 md:h-16 w-auto object-contain"
+              className={cn(
+                "w-auto object-contain transition-all duration-300",
+                scrolled ? "h-10 md:h-12" : "h-14 md:h-16"
+              )}
             />
             <span className="font-serif text-xl md:text-2xl font-extrabold tracking-tight text-white">
               Little Stars
