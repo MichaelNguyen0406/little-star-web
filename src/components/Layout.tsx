@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Header } from "./Header";
 import { Footer } from "./Footer";
 import { FloatingContact } from "./FloatingContact";
+import { MobileBar } from "./MobileBar";
 
 interface LayoutProps {
   children: ReactNode;
@@ -29,7 +30,7 @@ const pageVariants = {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col pb-20 md:pb-0">
       <Header />
       <motion.main
         className="flex-1"
@@ -42,6 +43,7 @@ export const Layout = ({ children }: LayoutProps) => {
       </motion.main>
       <Footer />
       <FloatingContact />
+      <MobileBar />
     </div>
   );
 };

@@ -8,7 +8,7 @@ export const FloatingContact = () => {
   const zaloLabel = language === "vi" ? "Nhắn Zalo" : "Chat Zalo";
 
   return (
-    <div className="fixed bottom-5 right-5 z-[60] flex flex-col items-end gap-3">
+    <div className="hidden md:flex fixed bottom-5 right-5 z-[60] flex-col items-end gap-3">
       {/* Zalo */}
       <a
         href={`https://zalo.me/${contactInfo.zaloDigits}`}
