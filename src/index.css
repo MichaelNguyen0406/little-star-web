@@ -124,7 +124,7 @@
 
   /* Chừa khoảng cho header dính khi cuộn tới section theo neo (#) */
   [id] {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 6.5rem;
   }
 
   body {

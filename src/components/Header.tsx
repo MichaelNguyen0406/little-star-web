@@ -42,7 +42,7 @@ export const Header = () => {
         <div
           className={cn(
             "flex items-center justify-between transition-all duration-300",
-            scrolled ? "h-14 md:h-16" : "h-16 md:h-20"
+            scrolled ? "h-16 md:h-20" : "h-20 md:h-24"
           )}
         >
           {/* Logo */}
@@ -52,7 +52,7 @@ export const Header = () => {
               alt="Little Stars Preschool"
               className={cn(
                 "w-auto object-contain transition-all duration-300",
-                scrolled ? "h-10 md:h-12" : "h-14 md:h-16"
+                scrolled ? "h-12 md:h-16" : "h-16 md:h-20"
               )}
             />
             <span className="font-serif text-xl md:text-2xl font-extrabold tracking-tight text-white">

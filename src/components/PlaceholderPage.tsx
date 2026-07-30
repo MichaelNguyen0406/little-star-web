@@ -27,7 +27,7 @@ export const PlaceholderPage = (p: Props) => {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative h-[46vh] md:h-[56vh] -mt-16 md:-mt-20 overflow-hidden flex items-end">
+      <section className="relative h-[46vh] md:h-[56vh] -mt-20 md:-mt-24 overflow-hidden flex items-end">
         <div className="absolute inset-0">
           <img src={p.image} alt={title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-foreground/85 via-foreground/55 to-foreground/30" />
