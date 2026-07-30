@@ -23,6 +23,8 @@ export const Header = () => {
   const navLinks = [
     { to: "/", label: t.nav.home },
     { to: "/about", label: t.nav.about },
+    { to: "/mam-non", label: language === "vi" ? "Mầm non" : "Preschool" },
+    { to: "/can-thiep", label: language === "vi" ? "Can thiệp" : "Intervention" },
     { to: "/#services", label: t.nav.services },
     { to: "/blog", label: "Blog" },
     { to: "/#contact", label: t.nav.contact },
@@ -52,7 +54,7 @@ export const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-5 lg:gap-7">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
