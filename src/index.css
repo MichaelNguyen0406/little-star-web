@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -53,7 +53,7 @@
     --little-star-soft-blue: 45 80% 94%;
 
     /* Typography */
-    --font-serif: 'Nunito', 'Inter', system-ui, sans-serif;
+    --font-serif: 'Baloo 2', 'Nunito', system-ui, sans-serif;
     --font-sans: 'Inter', system-ui, sans-serif;
 
     --sidebar-background: 0 0% 100%;
