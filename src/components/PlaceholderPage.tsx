@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 import { Layout } from "@/components/Layout";
+import { Moments } from "@/components/Moments";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useSeo } from "@/hooks/useSeo";
 import { contactInfo } from "@/data/translations";
@@ -73,6 +74,9 @@ export const PlaceholderPage = (p: Props) => {
           </div>
         </div>
       </section>
+
+      {/* Khoảnh khắc */}
+      <Moments />
     </Layout>
   );
 };

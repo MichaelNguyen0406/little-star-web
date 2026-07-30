@@ -3,7 +3,6 @@ import { Phone, ChevronDown, ArrowRight } from "lucide-react";
 import { useRef } from "react";
 import { Layout } from "@/components/Layout";
 import { Methods } from "@/components/Methods";
-import { Moments } from "@/components/Moments";
 import { QuoteBanner } from "@/components/QuoteBanner";
 import { RegisterForm } from "@/components/RegisterForm";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -370,9 +369,6 @@ const Index = () => {
 
         </div>
       </section>
-
-      {/* Moments Section (băng ảnh chạy) */}
-      <Moments />
 
       {/* Register Form Section */}
       <RegisterForm />
