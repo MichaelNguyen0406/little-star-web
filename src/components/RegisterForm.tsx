@@ -37,6 +37,17 @@ export const RegisterForm = () => {
               {s.title} <span className="text-primary">{s.titleHighlight}</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed max-w-md">{s.description}</p>
+
+            {/* Ảnh minh hoạ — TODO: thay bằng ảnh thật của trung tâm */}
+            <div className="mt-8 relative rounded-3xl overflow-hidden aspect-[16/10] max-w-md shadow-sm">
+              <img
+                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=900&q=80"
+                alt={s.title}
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
+            </div>
           </motion.div>
 
           <motion.form
