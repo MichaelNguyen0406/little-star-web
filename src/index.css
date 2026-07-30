@@ -346,3 +346,25 @@
     animation: none;
   }
 }
+
+/* ===== Dải ảnh khoảnh khắc (marquee chạy ngang) ===== */
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  width: max-content;
+  animation: marquee-x 50s linear infinite;
+}
+.marquee-pause:hover .animate-marquee {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}

@@ -21,7 +21,7 @@ export const RegisterForm = () => {
   };
 
   return (
-    <section id="register" className="py-20 md:py-28 bg-soft-blue">
+    <section id="register" className="py-20 md:py-28 bg-background">
       <div className="container-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div
@@ -56,7 +56,7 @@ export const RegisterForm = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
             onSubmit={handleSubmit}
-            className="rounded-3xl bg-background border border-border/60 shadow-sm p-7 md:p-9 space-y-5"
+            className="rounded-3xl bg-card border border-border/60 shadow-lg p-7 md:p-9 space-y-5"
           >
             <div className="grid sm:grid-cols-2 gap-5">
               <div className="space-y-2">

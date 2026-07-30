@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { Layout } from "@/components/Layout";
 import { Methods } from "@/components/Methods";
 import { Team } from "@/components/Team";
+import { Moments } from "@/components/Moments";
 import { RegisterForm } from "@/components/RegisterForm";
 import { useLanguage } from "@/hooks/useLanguage";
 import { translations, contactInfo } from "@/data/translations";
@@ -393,6 +394,9 @@ const Index = () => {
 
       {/* Team Section */}
       <Team />
+
+      {/* Moments Section */}
+      <Moments />
 
       {/* Register Form Section */}
       <RegisterForm />
