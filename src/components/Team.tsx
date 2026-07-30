@@ -28,7 +28,7 @@ export const Team = ({ bg = "background" }: { bg?: "background" | "soft-blue" })
           <p className="text-muted-foreground leading-relaxed">{s.description}</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        <div className="flex sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 lg:gap-8 overflow-x-auto sm:overflow-visible snap-x snap-mandatory -mx-6 px-6 sm:mx-0 sm:px-0 pb-4 sm:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {s.members.map((member, index) => (
             <motion.article
               key={member.name}
@@ -36,7 +36,7 @@ export const Team = ({ bg = "background" }: { bg?: "background" | "soft-blue" })
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
-              className="group rounded-3xl bg-card border border-border/60 overflow-hidden hover:shadow-xl transition-all duration-500"
+              className="group shrink-0 w-[78%] sm:w-auto snap-start rounded-3xl bg-card border border-border/60 overflow-hidden hover:shadow-xl transition-all duration-500"
             >
               <div className="relative aspect-[4/5] overflow-hidden">
                 <img
