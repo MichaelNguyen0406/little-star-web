@@ -5,6 +5,7 @@ import { Layout } from "@/components/Layout";
 import { Methods } from "@/components/Methods";
 import { Team } from "@/components/Team";
 import { Moments } from "@/components/Moments";
+import { QuoteBanner } from "@/components/QuoteBanner";
 import { RegisterForm } from "@/components/RegisterForm";
 import { useLanguage } from "@/hooks/useLanguage";
 import { translations, contactInfo } from "@/data/translations";
@@ -320,6 +321,9 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Quote Banner (ảnh full-width) */}
+      <QuoteBanner />
 
       {/* Process Section */}
       <section className="py-20 md:py-28 bg-soft-blue">

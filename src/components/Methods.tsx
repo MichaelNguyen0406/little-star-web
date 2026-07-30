@@ -2,6 +2,15 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
 import { sections } from "@/data/sections";
 
+// TODO: thay bằng ảnh thật minh hoạ từng phương pháp
+const methodImages = [
+  "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=700&q=80",
+  "https://images.unsplash.com/photo-1526634332515-d56c5fd16991?w=700&q=80",
+  "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=700&q=80",
+  "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=700&q=80",
+  "https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=700&q=80",
+];
+
 export const Methods = () => {
   const { language } = useLanguage();
   const s = sections[language].methods;
@@ -40,11 +49,16 @@ export const Methods = () => {
                 {/* Blob + chữ viết tắt outline cỡ đại */}
                 <div className={`flex justify-center ${flipped ? "md:order-2" : ""}`}>
                   <div
-                    className={`blob ${flipped ? "blob-alt" : ""} relative grid place-items-center w-52 h-52 md:w-72 md:h-72 bg-gradient-to-br from-primary/15 via-secondary/15 to-accent/10 transition-transform duration-500 group-hover:scale-[1.04]`}
+                    className={`blob ${flipped ? "blob-alt" : ""} relative overflow-hidden grid place-items-center w-52 h-52 md:w-72 md:h-72 shadow-lg transition-transform duration-500 group-hover:scale-[1.04]`}
                   >
-                    {/* vệt sáng mờ trang trí bên trong */}
-                    <span className="absolute inset-4 rounded-[inherit] border border-white/40" />
-                    <span className="acronym-outline font-serif text-4xl md:text-6xl font-extrabold select-none">
+                    <img
+                      src={methodImages[index % methodImages.length]}
+                      alt={method.name}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/30 to-primary/5" />
+                    <span className="relative font-serif text-4xl md:text-6xl font-extrabold text-white drop-shadow-md select-none tracking-wide">
                       {method.tag}
                     </span>
                   </div>
