@@ -92,7 +92,7 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href={`tel:+${contactInfo.phoneDigits}`}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-accent-foreground rounded-full text-sm font-semibold hover:bg-accent/90 transition-all duration-300 hover:scale-105"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-accent-foreground rounded-full text-sm font-semibold hover:bg-accent/90 transition-all duration-300 hover:scale-105"
               >
                 <Phone className="w-4 h-4" />
                 {t.hero.ctaCall}
@@ -101,7 +101,7 @@ const Index = () => {
                 href={`https://zalo.me/${contactInfo.zaloDigits}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/20 rounded-full text-sm font-semibold hover:bg-white/20 transition-all duration-300"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/20 rounded-full text-sm font-semibold hover:bg-white/20 transition-all duration-300"
               >
                 <MessageCircle className="w-4 h-4" />
                 {t.hero.ctaZalo}
@@ -110,7 +110,7 @@ const Index = () => {
                 href={contactInfo.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full text-sm font-semibold hover:bg-primary/90 transition-all duration-300"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full text-sm font-semibold hover:bg-primary/90 transition-all duration-300"
               >
                 <Facebook className="w-4 h-4" />
                 {t.hero.ctaFacebook}
@@ -395,7 +395,7 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href={`tel:+${contactInfo.phoneDigits}`}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-accent-foreground rounded-full text-sm font-semibold hover:bg-accent/90 transition-all duration-300 hover:scale-105"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-accent-foreground rounded-full text-sm font-semibold hover:bg-accent/90 transition-all duration-300 hover:scale-105"
                 >
                   <Phone className="w-4 h-4" />
                   {t.cta.ctaButton}
@@ -404,7 +404,7 @@ const Index = () => {
                   href={`https://zalo.me/${contactInfo.zaloDigits}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/15 text-white border border-white/30 rounded-full text-sm font-semibold hover:bg-white/25 transition-all duration-300"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/15 text-white border border-white/30 rounded-full text-sm font-semibold hover:bg-white/25 transition-all duration-300"
                 >
                   <MessageCircle className="w-4 h-4" />
                   Zalo
@@ -419,14 +419,14 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.15 }}
               className="overflow-hidden rounded-3xl border border-white/20 bg-white/10 backdrop-blur-sm"
             >
-              <div className="flex items-start justify-between gap-4 px-6 py-5 border-b border-white/15">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 px-6 py-5 border-b border-white/15">
                 <div>
                   <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-white/60 mb-1">
                     {t.cta.address}
                   </p>
                   <p className="text-base font-medium">{t.cta.addressValue}</p>
                 </div>
-                <div className="text-right shrink-0">
+                <div className="sm:text-right sm:shrink-0">
                   <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-white/60 mb-1">
                     {t.cta.hours}
                   </p>
