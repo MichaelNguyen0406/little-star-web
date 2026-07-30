@@ -40,14 +40,12 @@ export const Header = () => {
       <nav className="container-full">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <Link
-            to="/"
-            className="font-serif text-2xl md:text-3xl tracking-tight text-foreground hover:text-primary transition-colors duration-300 flex items-center gap-2"
-          >
-            <span className="inline-flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-full bg-primary text-primary-foreground text-sm md:text-base font-bold">
-              LS
-            </span>
-            <span>Little Stars</span>
+          <Link to="/" className="flex items-center" aria-label="Little Stars Preschool">
+            <img
+              src="/images/logo.jpg"
+              alt="Little Stars Preschool"
+              className="h-12 md:h-16 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Navigation */}
