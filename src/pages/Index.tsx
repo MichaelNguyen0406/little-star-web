@@ -86,7 +86,7 @@ const Index = () => {
             transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] as const }}
             className="max-w-3xl"
           >
-            <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl font-extrabold text-white mb-4 leading-[0.95] tracking-tight">
+            <h1 className="font-serif text-[clamp(3.5rem,11vw,9rem)] font-extrabold text-white mb-6 leading-[0.9] tracking-tight">
               Little <span className="text-accent">Stars</span>
             </h1>
             <p className="font-serif text-lg md:text-2xl text-white/90 mb-8 leading-snug max-w-xl">
@@ -110,41 +110,6 @@ const Index = () => {
               </a>
             </div>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 1.2 }}
-              className="mt-8 text-sm text-white/70 italic border-l-2 border-accent pl-4"
-            >
-              {t.hero.urgency}
-            </motion.p>
-
-            {/* Chip số liệu */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.4, duration: 0.6 }}
-              className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-xl"
-            >
-              {[
-                { value: "0–6", label: language === "vi" ? "Độ tuổi vàng" : "Golden age" },
-                { value: "1:1", label: language === "vi" ? "Can thiệp cá nhân" : "Individual support" },
-                { value: "ABA", label: language === "vi" ? "Phương pháp quốc tế" : "Global methods" },
-                { value: "IEP", label: language === "vi" ? "Lộ trình riêng" : "Personalized plan" },
-              ].map((b) => (
-                <div
-                  key={b.value}
-                  className="rounded-2xl bg-white/10 backdrop-blur-sm border border-white/15 px-3 py-3 text-center"
-                >
-                  <p className="font-serif text-2xl md:text-3xl font-bold text-accent leading-none mb-1">
-                    {b.value}
-                  </p>
-                  <p className="text-[10px] md:text-[11px] uppercase tracking-wider text-white/80 leading-tight">
-                    {b.label}
-                  </p>
-                </div>
-              ))}
-            </motion.div>
           </motion.div>
 
           {/* Scroll indicator */}
