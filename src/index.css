@@ -368,3 +368,22 @@
     animation: none;
   }
 }
+
+/* ===== Nút liên hệ nổi — hiệu ứng rung như chuông ===== */
+@keyframes wiggle {
+  0%, 55%, 100% { transform: rotate(0deg); }
+  10% { transform: rotate(-15deg); }
+  20% { transform: rotate(15deg); }
+  30% { transform: rotate(-10deg); }
+  40% { transform: rotate(10deg); }
+  50% { transform: rotate(-5deg); }
+}
+.animate-wiggle {
+  transform-origin: center;
+  animation: wiggle 1.8s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-wiggle {
+    animation: none;
+  }
+}
