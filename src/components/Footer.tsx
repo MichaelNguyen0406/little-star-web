@@ -97,7 +97,7 @@ export const Footer = () => {
               </li>
               <li>
                 <a
-                  href="/#contact"
+                  href="/#register"
                   className="text-sm text-background/60 hover:text-background transition-colors duration-300"
                 >
                   {t.footer.links.contact}

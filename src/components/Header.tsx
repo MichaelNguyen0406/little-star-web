@@ -26,7 +26,7 @@ export const Header = () => {
     { to: "/mam-non", label: language === "vi" ? "Mầm non" : "Preschool" },
     { to: "/can-thiep", label: language === "vi" ? "Can thiệp" : "Intervention" },
     { to: "/blog", label: "Blog" },
-    { to: "/#contact", label: t.nav.contact },
+    { to: "/#register", label: t.nav.contact },
   ];
 
   return (

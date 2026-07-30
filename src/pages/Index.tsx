@@ -1,9 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Phone, MessageCircle, ChevronDown, ArrowRight } from "lucide-react";
+import { Phone, ChevronDown, ArrowRight } from "lucide-react";
 import { useRef } from "react";
 import { Layout } from "@/components/Layout";
 import { Methods } from "@/components/Methods";
-import { Team } from "@/components/Team";
 import { Moments } from "@/components/Moments";
 import { QuoteBanner } from "@/components/QuoteBanner";
 import { RegisterForm } from "@/components/RegisterForm";
@@ -372,89 +371,11 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <Team />
-
       {/* Moments Section (băng ảnh chạy) */}
       <Moments />
 
       {/* Register Form Section */}
       <RegisterForm />
-
-      {/* CTA / Contact Section */}
-      <section id="contact" className="py-20 md:py-28 bg-primary text-primary-foreground">
-        <div className="container-full">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-            >
-              <h2 className="font-serif text-3xl md:text-5xl mb-6 leading-[1.05]">
-                {t.cta.title}{" "}
-                <span className="text-accent">{t.cta.titleHighlight}</span>
-              </h2>
-              <p className="text-primary-foreground/80 leading-relaxed mb-8 max-w-md text-base">
-                {t.cta.description}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href={`tel:+${contactInfo.phoneDigits}`}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-accent-foreground rounded-full text-sm font-semibold hover:bg-accent/90 transition-all duration-300 hover:scale-105"
-                >
-                  <Phone className="w-4 h-4" />
-                  {t.cta.ctaButton}
-                </a>
-                <a
-                  href={`https://zalo.me/${contactInfo.zaloDigits}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/15 text-white border border-white/30 rounded-full text-sm font-semibold hover:bg-white/25 transition-all duration-300"
-                >
-                  <MessageCircle className="w-4 h-4" />
-                  Zalo
-                </a>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.15 }}
-              className="overflow-hidden rounded-3xl border border-white/20 bg-white/10 backdrop-blur-sm"
-            >
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 px-6 py-5 border-b border-white/15">
-                <div>
-                  <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-white/60 mb-1">
-                    {t.cta.address}
-                  </p>
-                  <p className="text-base font-medium">{t.cta.addressValue}</p>
-                </div>
-                <div className="sm:text-right sm:shrink-0">
-                  <p className="text-[11px] font-semibold tracking-[0.25em] uppercase text-white/60 mb-1">
-                    {t.cta.hours}
-                  </p>
-                  <p className="text-sm font-medium">{t.cta.hoursValue}</p>
-                </div>
-              </div>
-              <div className="relative aspect-[4/3] w-full">
-                <iframe
-                  title={language === "vi" ? "Bản đồ Little Stars" : "Little Stars map"}
-                  src={`https://www.google.com/maps?q=${encodeURIComponent(
-                    t.cta.addressValue
-                  )}&output=embed`}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="absolute inset-0 w-full h-full border-0 grayscale-[15%]"
-                />
-              </div>
-            </motion.div>
-
-          </div>
-        </div>
-      </section>
 
     </Layout>
   );
