@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Phone, MessageCircle, Facebook, ChevronDown, Star } from "lucide-react";
+import { Phone, MessageCircle, ChevronDown, ArrowRight } from "lucide-react";
 import { useRef } from "react";
 import { Layout } from "@/components/Layout";
 import { Methods } from "@/components/Methods";
@@ -10,6 +10,13 @@ import { RegisterForm } from "@/components/RegisterForm";
 import { useLanguage } from "@/hooks/useLanguage";
 import { translations, contactInfo } from "@/data/translations";
 import { cn } from "@/lib/utils";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const serviceImages = [
   "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=900&q=80",
@@ -82,16 +89,6 @@ const Index = () => {
             transition={{ duration: 1, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] as const }}
             className="max-w-3xl"
           >
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm text-white/90 text-xs font-semibold tracking-wider uppercase mb-6"
-            >
-              <Star className="w-3.5 h-3.5 text-accent fill-accent" />
-              {t.hero.subtitle}
-            </motion.div>
-
             <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl font-extrabold text-white mb-4 leading-[0.95] tracking-tight">
               Little <span className="text-accent">Stars</span>
             </h1>
@@ -104,29 +101,18 @@ const Index = () => {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <a
+                href="#register"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-accent-foreground rounded-full text-base font-bold hover:bg-accent/90 transition-all duration-300 hover:scale-105 shadow-lg"
+              >
+                {language === "vi" ? "Đăng ký tư vấn 1:1" : "Book a 1:1 consultation"}
+                <ArrowRight className="w-5 h-5" />
+              </a>
+              <a
                 href={`tel:+${contactInfo.phoneDigits}`}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent text-accent-foreground rounded-full text-sm font-semibold hover:bg-accent/90 transition-all duration-300 hover:scale-105"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/25 rounded-full text-base font-semibold hover:bg-white/20 transition-all duration-300"
               >
                 <Phone className="w-4 h-4" />
                 {t.hero.ctaCall}
-              </a>
-              <a
-                href={`https://zalo.me/${contactInfo.zaloDigits}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white border border-white/20 rounded-full text-sm font-semibold hover:bg-white/20 transition-all duration-300"
-              >
-                <MessageCircle className="w-4 h-4" />
-                {t.hero.ctaZalo}
-              </a>
-              <a
-                href={contactInfo.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-primary-foreground rounded-full text-sm font-semibold hover:bg-primary/90 transition-all duration-300"
-              >
-                <Facebook className="w-4 h-4" />
-                {t.hero.ctaFacebook}
               </a>
             </div>
 
@@ -206,42 +192,38 @@ const Index = () => {
             </h2>
           </motion.div>
 
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
-          >
-            {t.services.items.map((service, index) => (
-              <motion.article
-                key={service.title}
-                variants={itemVariants}
-                className="group relative overflow-hidden rounded-3xl bg-card border border-border/60 hover:shadow-xl transition-all duration-500"
-              >
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <img
-                    src={serviceImages[index % serviceImages.length]}
-                    alt={service.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-[1.06]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent" />
-                  <span className="absolute top-4 left-4 text-[11px] font-semibold tracking-[0.2em] text-background/90">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="absolute bottom-4 left-5 right-5 font-serif text-xl md:text-2xl text-background leading-snug">
-                    {service.title}
-                  </h3>
-                </div>
-                <div className="p-6 md:p-7">
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                    {service.description}
-                  </p>
-                </div>
-              </motion.article>
-            ))}
-          </motion.div>
+          <Carousel opts={{ align: "start", loop: true }} className="w-full">
+            <CarouselContent className="-ml-4">
+              {t.services.items.map((service, index) => (
+                <CarouselItem key={service.title} className="pl-4 basis-4/5 sm:basis-1/2 lg:basis-1/3">
+                  <article className="group relative h-full overflow-hidden rounded-3xl bg-card border border-border/60 hover:shadow-xl transition-all duration-500">
+                    <div className="relative aspect-[4/3] overflow-hidden">
+                      <img
+                        src={serviceImages[index % serviceImages.length]}
+                        alt={service.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-[1.06]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent" />
+                      <span className="absolute top-4 left-4 text-[11px] font-semibold tracking-[0.2em] text-background/90">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <h3 className="absolute bottom-4 left-5 right-5 font-serif text-xl md:text-2xl text-background leading-snug">
+                        {service.title}
+                      </h3>
+                    </div>
+                    <div className="p-6 md:p-7">
+                      <p className="text-muted-foreground leading-relaxed text-sm">
+                        {service.description}
+                      </p>
+                    </div>
+                  </article>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2 md:-left-4 bg-background border-border text-foreground hover:bg-primary hover:text-primary-foreground" />
+            <CarouselNext className="right-2 md:-right-4 bg-background border-border text-foreground hover:bg-primary hover:text-primary-foreground" />
+          </Carousel>
 
         </div>
       </section>
@@ -354,39 +336,38 @@ const Index = () => {
             </h2>
           </motion.div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {t.process.steps.map((step, index) => (
-              <motion.article
-                key={step.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ delay: index * 0.08, duration: 0.6 }}
-                className="group flex flex-col rounded-3xl overflow-hidden bg-card border border-border/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
-              >
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  <img
-                    src={processImages[index % processImages.length]}
-                    alt={step.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/45 to-transparent" />
-                  <span className="absolute top-4 left-4 w-11 h-11 rounded-full bg-accent text-accent-foreground grid place-items-center font-serif text-lg font-bold shadow-md">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <div className="flex flex-col flex-1 p-6">
-                  <h3 className="font-serif text-lg md:text-xl font-semibold text-foreground mb-2">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              </motion.article>
-            ))}
-          </div>
+          <Carousel opts={{ align: "start", loop: true }} className="w-full">
+            <CarouselContent className="-ml-4">
+              {t.process.steps.map((step, index) => (
+                <CarouselItem key={step.title} className="pl-4 basis-4/5 sm:basis-1/2 lg:basis-1/3">
+                  <article className="group h-full flex flex-col rounded-3xl overflow-hidden bg-card border border-border/60 shadow-sm hover:shadow-xl transition-all duration-500">
+                    <div className="relative aspect-[16/10] overflow-hidden">
+                      <img
+                        src={processImages[index % processImages.length]}
+                        alt={step.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/45 to-transparent" />
+                      <span className="absolute top-4 left-4 w-11 h-11 rounded-full bg-accent text-accent-foreground grid place-items-center font-serif text-lg font-bold shadow-md">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <div className="flex flex-col flex-1 p-6">
+                      <h3 className="font-serif text-lg md:text-xl font-semibold text-foreground mb-2">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
+                  </article>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="left-2 md:-left-4 bg-background border-border text-foreground hover:bg-primary hover:text-primary-foreground" />
+            <CarouselNext className="right-2 md:-right-4 bg-background border-border text-foreground hover:bg-primary hover:text-primary-foreground" />
+          </Carousel>
 
         </div>
       </section>
