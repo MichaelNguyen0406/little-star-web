@@ -12,6 +12,9 @@ import { Label } from "@/components/ui/label";
 export const RegisterForm = () => {
   const { language } = useLanguage();
   const s = sections[language].register;
+  // Hình dạng riêng: cắt chéo góc trên-trái & dưới-phải
+  const clip =
+    "polygon(44px 0, 100% 0, 100% calc(100% - 44px), calc(100% - 44px) 100%, 0 100%, 0 44px)";
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,7 +31,7 @@ export const RegisterForm = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto mb-10 md:mb-12"
+          className="text-center max-w-3xl mx-auto mb-10 md:mb-12"
         >
           <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-4">
             {s.label}
@@ -38,14 +41,21 @@ export const RegisterForm = () => {
           </h2>
         </motion.div>
 
-        <motion.form
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          onSubmit={handleSubmit}
-          className="max-w-2xl mx-auto rounded-3xl bg-card border border-border/60 shadow-xl p-8 md:p-12 space-y-6"
-        >
+        <div className="max-w-3xl mx-auto drop-shadow-xl">
+          {/* Viền gradient theo hình dạng cắt góc */}
+          <div
+            className="p-[3px] bg-gradient-to-br from-accent via-primary to-secondary"
+            style={{ clipPath: clip }}
+          >
+            <motion.form
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              onSubmit={handleSubmit}
+              className="bg-card p-8 md:p-14 space-y-6"
+              style={{ clipPath: clip }}
+            >
           <div className="grid sm:grid-cols-2 gap-5">
             <div className="space-y-2">
               <Label htmlFor="parent">{s.fields.parent} *</Label>
@@ -72,7 +82,9 @@ export const RegisterForm = () => {
             {s.submit}
             <Send className="ml-2 w-4 h-4" />
           </Button>
-        </motion.form>
+            </motion.form>
+          </div>
+        </div>
       </div>
     </section>
   );
