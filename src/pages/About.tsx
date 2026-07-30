@@ -179,47 +179,82 @@ const About = () => {
       {/* Values */}
       <section className="py-20 md:py-28 bg-background">
         <div className="container-full">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl mb-4 md:mb-8"
-          >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-3">
-              {language === "vi" ? "Kim chỉ nam" : "Our compass"}
-            </p>
-            <h2 className="font-serif text-3xl md:text-5xl text-foreground">
-              {t.about.valuesTitle}
-            </h2>
-            <p className="text-muted-foreground leading-relaxed mt-4">
-              {language === "vi"
-                ? "Những nguyên tắc định hình mọi việc chúng tôi làm — từ buổi đánh giá đầu tiên đến ngày con hoà nhập."
-                : "The principles behind everything we do — from the first assessment to the day your child thrives."}
-            </p>
-          </motion.div>
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            {/* Ảnh collage — TODO: thay bằng ảnh thật */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="lg:col-span-5 grid grid-cols-5 gap-4 lg:sticky lg:top-28"
+            >
+              <div className="col-span-3 relative aspect-[3/4] rounded-3xl overflow-hidden shadow-sm">
+                <img
+                  src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80"
+                  alt={t.about.valuesTitle}
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/25 to-transparent" />
+              </div>
+              <div className="col-span-2 relative aspect-[3/5] rounded-3xl overflow-hidden mt-10 shadow-sm">
+                <img
+                  src="https://images.unsplash.com/photo-1526634332515-d56c5fd16991?w=700&q=80"
+                  alt={t.about.valuesTitle}
+                  loading="lazy"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/25 to-transparent" />
+              </div>
+            </motion.div>
 
-          <div className="border-t border-border">
-            {t.about.values.map((value, index) => (
+            {/* Tiêu đề + danh sách giá trị */}
+            <div className="lg:col-span-7">
               <motion.div
-                key={value.title}
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.08, duration: 0.5 }}
-                className="group grid md:grid-cols-[120px,300px,1fr] gap-2 md:gap-8 items-baseline border-b border-border py-8 md:py-10 -mx-4 px-4 rounded-2xl hover:bg-soft-blue/50 transition-colors duration-300"
+                transition={{ duration: 0.6 }}
+                className="mb-4 md:mb-6"
               >
-                <span className="font-serif text-5xl md:text-7xl font-bold text-primary/15 group-hover:text-primary/40 transition-colors duration-300 leading-none tabular-nums">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3 className="font-serif text-xl md:text-2xl font-semibold text-foreground">
-                  {value.title}
-                </h3>
-                <p className="text-muted-foreground leading-relaxed md:text-[17px]">
-                  {value.description}
+                <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-3">
+                  {language === "vi" ? "Kim chỉ nam" : "Our compass"}
+                </p>
+                <h2 className="font-serif text-3xl md:text-5xl text-foreground">
+                  {t.about.valuesTitle}
+                </h2>
+                <p className="text-muted-foreground leading-relaxed mt-4">
+                  {language === "vi"
+                    ? "Những nguyên tắc định hình mọi việc chúng tôi làm — từ buổi đánh giá đầu tiên đến ngày con hoà nhập."
+                    : "The principles behind everything we do — from the first assessment to the day your child thrives."}
                 </p>
               </motion.div>
-            ))}
+
+              <div className="border-t border-border">
+                {t.about.values.map((value, index) => (
+                  <motion.div
+                    key={value.title}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.08, duration: 0.5 }}
+                    className="group flex gap-5 items-baseline border-b border-border py-6 md:py-7 -mx-3 px-3 rounded-xl hover:bg-soft-blue/50 transition-colors duration-300"
+                  >
+                    <span className="font-serif text-4xl md:text-5xl font-bold text-primary/15 group-hover:text-primary/40 transition-colors duration-300 leading-none tabular-nums shrink-0">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <h3 className="font-serif text-lg md:text-xl font-semibold text-foreground">
+                        {value.title}
+                      </h3>
+                      <p className="text-sm md:text-[15px] text-muted-foreground leading-relaxed mt-1">
+                        {value.description}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -231,8 +266,18 @@ const About = () => {
       <Facilities />
 
       {/* CTA */}
-      <section className="py-20 md:py-28 bg-primary text-primary-foreground">
-        <div className="container-narrow text-center">
+      <section className="relative py-24 md:py-32 text-white overflow-hidden">
+        {/* Ảnh nền — TODO: thay bằng ảnh thật */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=1920&q=80"
+            alt=""
+            loading="lazy"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-primary/85" />
+        </div>
+        <div className="relative container-narrow text-center">
           <h2 className="font-serif text-3xl md:text-5xl mb-6 leading-[1.05]">
             {t.cta.title} <span className="text-accent">{t.cta.titleHighlight}</span>
           </h2>
