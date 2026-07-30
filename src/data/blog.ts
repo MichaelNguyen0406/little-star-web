@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "can-thiep-som-la-gi-giai-doan-vang-0-6-tuoi",
     title: "Can thiệp sớm là gì? Vì sao giai đoạn vàng 0–6 tuổi quyết định tương lai của con",
-    metaTitle: "Can thiệp sớm là gì? Giai đoạn vàng 0–6 tuổi cho trẻ | Little Star",
+    metaTitle: "Can thiệp sớm là gì? Giai đoạn vàng 0–6 tuổi cho trẻ | Little Stars",
     excerpt:
       "Can thiệp sớm là chìa khoá giúp trẻ tự kỷ, chậm nói, chậm phát triển bắt kịp bạn bè. Hiểu đúng về 'giai đoạn vàng' 0–6 tuổi để không bỏ lỡ thời điểm quan trọng nhất.",
     date: "2026-07-20",
@@ -65,7 +65,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Cha mẹ nên làm gì?",
         paragraphs: [
           "Điều quan trọng nhất là quan sát và hành động sớm. Nếu con có bất kỳ dấu hiệu nào khiến bạn lo lắng, hãy tìm đến một trung tâm can thiệp sớm hoặc chuyên gia để được đánh giá. Việc đánh giá không gây hại gì cho con, ngược lại giúp bạn hiểu con hơn và có hướng đi đúng.",
-          "Tại Little Star, chúng tôi cung cấp buổi đánh giá và tư vấn ban đầu để đồng hành cùng gia đình ngay từ bước đầu tiên.",
+          "Tại Little Stars, chúng tôi cung cấp buổi đánh giá và tư vấn ban đầu để đồng hành cùng gia đình ngay từ bước đầu tiên.",
         ],
       },
     ],
@@ -73,7 +73,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "dau-hieu-nhan-biet-tre-tu-ky-som",
     title: "Dấu hiệu nhận biết trẻ tự kỷ sớm cha mẹ không nên bỏ qua",
-    metaTitle: "Dấu hiệu trẻ tự kỷ sớm: 8 biểu hiện cha mẹ cần biết | Little Star",
+    metaTitle: "Dấu hiệu trẻ tự kỷ sớm: 8 biểu hiện cha mẹ cần biết | Little Stars",
     excerpt:
       "Nhận biết sớm dấu hiệu tự kỷ ở trẻ giúp can thiệp kịp thời trong giai đoạn vàng. Tổng hợp các biểu hiện theo từng mốc tuổi cha mẹ nên chú ý.",
     date: "2026-07-24",
@@ -116,7 +116,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "tre-cham-noi-khi-nao-can-can-thiep",
     title: "Trẻ chậm nói: Khi nào cần can thiệp và can thiệp thế nào?",
-    metaTitle: "Trẻ chậm nói khi nào cần can thiệp? Hướng dẫn cho cha mẹ | Little Star",
+    metaTitle: "Trẻ chậm nói khi nào cần can thiệp? Hướng dẫn cho cha mẹ | Little Stars",
     excerpt:
       "Trẻ chậm nói có phải tự kỷ không? Khi nào là chậm nói đơn thuần, khi nào cần can thiệp âm ngữ trị liệu? Giải đáp cho cha mẹ đang lo lắng.",
     date: "2026-07-27",
@@ -148,7 +148,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Can thiệp thế nào?",
         paragraphs: [
           "Can thiệp cho trẻ chậm nói thường bao gồm âm ngữ trị liệu, kết hợp các hoạt động kích thích ngôn ngữ tại trung tâm và tại nhà. Cha mẹ đóng vai trò rất quan trọng: nói chuyện nhiều với con, đọc sách, mô tả hoạt động hằng ngày và khuyến khích con thể hiện nhu cầu bằng lời.",
-          "Tại Little Star, chuyên viên âm ngữ trị liệu sẽ xây dựng lộ trình riêng cho từng bé và hướng dẫn gia đình đồng hành hiệu quả.",
+          "Tại Little Stars, chuyên viên âm ngữ trị liệu sẽ xây dựng lộ trình riêng cho từng bé và hướng dẫn gia đình đồng hành hiệu quả.",
         ],
       },
     ],
@@ -156,7 +156,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "cac-phuong-phap-can-thiep-tre-tu-ky-aba-esdm-teacch-pecs",
     title: "ABA, ESDM, TEACCH, PECS: Các phương pháp can thiệp trẻ tự kỷ phổ biến",
-    metaTitle: "Các phương pháp can thiệp tự kỷ: ABA, ESDM, TEACCH, PECS | Little Star",
+    metaTitle: "Các phương pháp can thiệp tự kỷ: ABA, ESDM, TEACCH, PECS | Little Stars",
     excerpt:
       "Tìm hiểu các phương pháp can thiệp trẻ tự kỷ được công nhận quốc tế: ABA, ESDM, TEACCH, PECS, Floortime — ưu điểm và phù hợp với trẻ nào.",
     date: "2026-07-29",
@@ -191,7 +191,7 @@ export const blogPosts: BlogPost[] = [
         heading: "PECS & Floortime",
         paragraphs: [
           "PECS (Picture Exchange Communication System) dùng thẻ hình giúp trẻ chưa nói được thể hiện nhu cầu và bắt đầu giao tiếp. Floortime (DIR) tập trung xây dựng kết nối cảm xúc thông qua chính hứng thú của trẻ.",
-          "Tại Little Star, chúng tôi đánh giá kỹ từng bé để lựa chọn và kết hợp linh hoạt các phương pháp, tạo nên lộ trình cá nhân hoá phù hợp nhất.",
+          "Tại Little Stars, chúng tôi đánh giá kỹ từng bé để lựa chọn và kết hợp linh hoạt các phương pháp, tạo nên lộ trình cá nhân hoá phù hợp nhất.",
         ],
       },
     ],
@@ -199,7 +199,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "cha-me-dong-hanh-cung-con-tai-nha-hoat-dong-cu-the",
     title: "Cha mẹ đồng hành cùng con tại nhà: những hoạt động can thiệp đơn giản mỗi ngày",
-    metaTitle: "Dạy trẻ đặc biệt tại nhà: hoạt động can thiệp mỗi ngày | Little Star",
+    metaTitle: "Dạy trẻ đặc biệt tại nhà: hoạt động can thiệp mỗi ngày | Little Stars",
     excerpt:
       "Can thiệp ở trung tâm chỉ vài giờ mỗi tuần, phần lớn thời gian con ở bên cha mẹ. Gợi ý các hoạt động cụ thể giúp bạn biến sinh hoạt hằng ngày thành cơ hội can thiệp.",
     date: "2026-07-30",
@@ -258,7 +258,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "cong-cu-danh-gia-phat-trien-mchat-denver-cars-pep3",
     title: "Các công cụ đánh giá phát triển: M-CHAT, Denver II, CARS, PEP-3 nói lên điều gì?",
-    metaTitle: "Công cụ đánh giá trẻ tự kỷ: M-CHAT, Denver, CARS, PEP-3 | Little Star",
+    metaTitle: "Công cụ đánh giá trẻ tự kỷ: M-CHAT, Denver, CARS, PEP-3 | Little Stars",
     excerpt:
       "Trước khi can thiệp, trẻ cần được đánh giá. Nhưng các thang đo M-CHAT, Denver II, CARS, PEP-3 là gì và cho biết điều gì về con? Giải thích dễ hiểu cho cha mẹ.",
     date: "2026-07-30",
@@ -298,7 +298,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Đánh giá là điểm khởi đầu, không phải bản án",
         paragraphs: [
-          "Không một con số hay thang đo nào định nghĩa toàn bộ con bạn. Đánh giá chỉ là tấm bản đồ giúp cả gia đình và chuyên viên biết bắt đầu từ đâu và đi theo hướng nào. Và bản đồ ấy sẽ được cập nhật liên tục khi con tiến bộ — tại Little Star, chúng tôi đánh giá lại định kỳ để điều chỉnh mục tiêu cho phù hợp.",
+          "Không một con số hay thang đo nào định nghĩa toàn bộ con bạn. Đánh giá chỉ là tấm bản đồ giúp cả gia đình và chuyên viên biết bắt đầu từ đâu và đi theo hướng nào. Và bản đồ ấy sẽ được cập nhật liên tục khi con tiến bộ — tại Little Stars, chúng tôi đánh giá lại định kỳ để điều chỉnh mục tiêu cho phù hợp.",
         ],
       },
     ],
@@ -306,7 +306,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "roi-loan-dieu-hoa-cam-giac-va-hoat-dong-tri-lieu-ot",
     title: "Rối loạn điều hòa cảm giác ở trẻ: dấu hiệu và vai trò của hoạt động trị liệu (OT)",
-    metaTitle: "Rối loạn điều hòa cảm giác ở trẻ & hoạt động trị liệu OT | Little Star",
+    metaTitle: "Rối loạn điều hòa cảm giác ở trẻ & hoạt động trị liệu OT | Little Stars",
     excerpt:
       "Con bịt tai khi nghe tiếng động, không chịu mặc quần áo có nhãn mác, hoặc lúc nào cũng chạy nhảy va chạm? Có thể con đang gặp khó khăn về điều hòa cảm giác.",
     date: "2026-07-28",
@@ -363,7 +363,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "chuan-bi-cho-con-hoa-nhap-mam-non-tieu-hoc",
     title: "Chuẩn bị cho con hòa nhập mầm non, tiểu học: lộ trình cho trẻ có nhu cầu đặc biệt",
-    metaTitle: "Chuẩn bị cho trẻ đặc biệt hòa nhập mầm non, tiểu học | Little Star",
+    metaTitle: "Chuẩn bị cho trẻ đặc biệt hòa nhập mầm non, tiểu học | Little Stars",
     excerpt:
       "Hòa nhập là đích đến của hầu hết hành trình can thiệp. Nhưng đưa con vào lớp học bình thường quá sớm hoặc thiếu chuẩn bị có thể phản tác dụng. Đây là lộ trình hợp lý.",
     date: "2026-07-26",
@@ -405,7 +405,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Tôn trọng tốc độ riêng của con",
         paragraphs: [
-          "Mỗi đứa trẻ có một nhịp riêng. Có bé hòa nhập hoàn toàn, có bé cần môi trường hỗ trợ lâu hơn — cả hai đều ổn. Điều quan trọng là con được đặt vào môi trường vừa sức để tiếp tục tiến bộ và giữ được sự tự tin. Tại Little Star, chúng tôi đồng hành cùng gia đình trong suốt giai đoạn chuyển tiếp quan trọng này.",
+          "Mỗi đứa trẻ có một nhịp riêng. Có bé hòa nhập hoàn toàn, có bé cần môi trường hỗ trợ lâu hơn — cả hai đều ổn. Điều quan trọng là con được đặt vào môi trường vừa sức để tiếp tục tiến bộ và giữ được sự tự tin. Tại Little Stars, chúng tôi đồng hành cùng gia đình trong suốt giai đoạn chuyển tiếp quan trọng này.",
         ],
       },
     ],

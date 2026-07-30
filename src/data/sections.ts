@@ -121,11 +121,11 @@ export const sections: Record<Language, SectionContent> = {
       title: "Đăng ký đánh giá",
       titleHighlight: "miễn phí cho con",
       description:
-        "Để lại thông tin, chuyên viên của Little Star sẽ liên hệ tư vấn trong thời gian sớm nhất. Can thiệp càng sớm, cơ hội tiến bộ của con càng lớn.",
+        "Để lại thông tin, chuyên viên của Little Stars sẽ liên hệ tư vấn trong thời gian sớm nhất. Can thiệp càng sớm, cơ hội tiến bộ của con càng lớn.",
       fields: { parent: "Họ tên phụ huynh", phone: "Số điện thoại", childAge: "Tuổi của bé", note: "Điều anh/chị quan tâm" },
       placeholders: { parent: "Nguyễn Văn A", phone: "09xx xxx xxx", childAge: "Ví dụ: 3 tuổi", note: "Con chậm nói, muốn được tư vấn..." },
       submit: "Gửi đăng ký",
-      success: "Cảm ơn anh/chị! Little Star sẽ liên hệ trong thời gian sớm nhất.",
+      success: "Cảm ơn anh/chị! Little Stars sẽ liên hệ trong thời gian sớm nhất.",
     },
     facilities: {
       label: "Cơ sở vật chất",
@@ -176,11 +176,11 @@ export const sections: Record<Language, SectionContent> = {
       title: "Book a free",
       titleHighlight: "assessment",
       description:
-        "Leave your details and a Little Star specialist will reach out shortly. The earlier the intervention, the greater your child's chance to progress.",
+        "Leave your details and a Little Stars specialist will reach out shortly. The earlier the intervention, the greater your child's chance to progress.",
       fields: { parent: "Parent's name", phone: "Phone number", childAge: "Child's age", note: "What concerns you" },
       placeholders: { parent: "John Doe", phone: "09xx xxx xxx", childAge: "e.g. 3 years", note: "My child has a speech delay..." },
       submit: "Send registration",
-      success: "Thank you! Little Star will contact you shortly.",
+      success: "Thank you! Little Stars will contact you shortly.",
     },
     facilities: {
       label: "Facilities",

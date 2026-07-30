@@ -15,8 +15,8 @@ const About = () => {
   useSeo({
     title:
       language === "vi"
-        ? "Về Little Star — Trung tâm Can thiệp sớm cho trẻ đặc biệt"
-        : "About Little Star — Early Intervention Center",
+        ? "Về Little Stars — Trung tâm Can thiệp sớm cho trẻ đặc biệt"
+        : "About Little Stars — Early Intervention Center",
     description: t.about.lead,
   });
   const heroRef = useRef<HTMLDivElement>(null);
@@ -135,7 +135,7 @@ const About = () => {
               <div className="relative rounded-[2.5rem] overflow-hidden aspect-[4/5] shadow-xl">
                 <img
                   src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=900&q=80"
-                  alt="Little Star"
+                  alt="Little Stars"
                   loading="lazy"
                   className="w-full h-full object-cover"
                 />

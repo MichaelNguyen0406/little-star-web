@@ -119,7 +119,7 @@ export const translations: Record<Language, Translation> = {
       title: "Mỗi đứa trẻ đều là một ngôi sao nhỏ",
       titleHighlight: "cần được nâng đỡ đúng lúc",
       description:
-        "Little Star đồng hành cùng gia đình có con từ 0–6 tuổi thuộc nhóm có nhu cầu giáo dục đặc biệt. Chúng tôi cung cấp đánh giá rõ ràng, lộ trình cá nhân hóa và phương pháp can thiệp có bằng chứng khoa học.",
+        "Little Stars đồng hành cùng gia đình có con từ 0–6 tuổi thuộc nhóm có nhu cầu giáo dục đặc biệt. Chúng tôi cung cấp đánh giá rõ ràng, lộ trình cá nhân hóa và phương pháp can thiệp có bằng chứng khoa học.",
       ctaCall: "Gọi tư vấn",
       ctaZalo: "Nhắn Zalo",
       ctaFacebook: "Facebook",
@@ -162,7 +162,7 @@ export const translations: Record<Language, Translation> = {
       ],
     },
     whyUs: {
-      label: "Tại sao chọn Little Star",
+      label: "Tại sao chọn Little Stars",
       title: "Khoa học của trái tim",
       titleHighlight: "chuyên nghiệp nhưng ấm áp",
       description:
@@ -222,11 +222,11 @@ export const translations: Record<Language, Translation> = {
     },
     about: {
       label: "Về chúng tôi",
-      title: "Little Star —",
+      title: "Little Stars —",
       titleHighlight: "nơi những bước đi đầu tiên được nâng niu",
       lead: "Trung tâm can thiệp sớm cho trẻ 0–6 tuổi có nhu cầu giáo dục đặc biệt, xây dựng trên nền tảng đánh giá bài bản, phương pháp có bằng chứng khoa học và sự đồng hành thật sự cùng gia đình.",
       paragraphs: [
-        "Little Star được thành lập bởi những nhà giáo dục và trị liệu viên đã nhiều năm đi cùng các gia đình có con khác biệt về phát triển. Chúng tôi thấy một điều lặp lại: cha mẹ nhận ra dấu hiệu rất sớm, nhưng không biết bắt đầu từ đâu — và những tháng vàng cứ thế trôi qua.",
+        "Little Stars được thành lập bởi những nhà giáo dục và trị liệu viên đã nhiều năm đi cùng các gia đình có con khác biệt về phát triển. Chúng tôi thấy một điều lặp lại: cha mẹ nhận ra dấu hiệu rất sớm, nhưng không biết bắt đầu từ đâu — và những tháng vàng cứ thế trôi qua.",
         "Vì vậy chúng tôi tạo ra một nơi mà cuộc trò chuyện đầu tiên đã rõ ràng và ấm áp; mỗi trẻ có một lộ trình riêng thay vì một chương trình chung; và cha mẹ được hướng dẫn để tiếp tục can thiệp tại nhà. Tiến bộ của con được đo lường, rà soát và chia sẻ minh bạch từng tháng.",
       ],
       stats: [
@@ -301,7 +301,7 @@ export const translations: Record<Language, Translation> = {
         phone: "Hotline",
         zalo: "Zalo",
       },
-      copyright: "© {year} Little Star. Mọi quyền được bảo lưu.",
+      copyright: "© {year} Little Stars. Mọi quyền được bảo lưu.",
     },
   },
   en: {
@@ -317,7 +317,7 @@ export const translations: Record<Language, Translation> = {
       title: "Every child is a little star",
       titleHighlight: "waiting to shine at the right time",
       description:
-        "Little Star partners with families of children aged 0–6 with special educational needs. We provide clear assessments, personalized learning plans, and evidence-based interventions.",
+        "Little Stars partners with families of children aged 0–6 with special educational needs. We provide clear assessments, personalized learning plans, and evidence-based interventions.",
       ctaCall: "Call us",
       ctaZalo: "Message Zalo",
       ctaFacebook: "Facebook",
@@ -360,7 +360,7 @@ export const translations: Record<Language, Translation> = {
       ],
     },
     whyUs: {
-      label: "Why Little Star",
+      label: "Why Little Stars",
       title: "The science of the heart",
       titleHighlight: "professional yet warm",
       description:
@@ -420,11 +420,11 @@ export const translations: Record<Language, Translation> = {
     },
     about: {
       label: "About us",
-      title: "Little Star —",
+      title: "Little Stars —",
       titleHighlight: "where first steps are cherished",
       lead: "An early intervention centre for children aged 0–6 with special educational needs, built on assessment, evidence-based methods and true partnership with families.",
       paragraphs: [
-        "Little Star was founded by educators and therapists who have spent years alongside families of children with developmental differences. We saw the same pattern again and again: parents notice something early, but do not know where to begin — and precious months slip away.",
+        "Little Stars was founded by educators and therapists who have spent years alongside families of children with developmental differences. We saw the same pattern again and again: parents notice something early, but do not know where to begin — and precious months slip away.",
         "So we built a place where the first conversation is clear and kind, where every child receives an individual plan instead of a generic programme, and where parents are trained to continue the work at home. Progress is measured, reviewed and shared openly, month after month.",
       ],
       stats: [
@@ -499,7 +499,7 @@ export const translations: Record<Language, Translation> = {
         phone: "Hotline",
         zalo: "Zalo",
       },
-      copyright: "© {year} Little Star. All rights reserved.",
+      copyright: "© {year} Little Stars. All rights reserved.",
     },
   },
 };
@@ -519,7 +519,7 @@ export const contactInfo = {
   email: "lienhe@littlestar.edu.vn",
   // Link Facebook
   facebook: "https://facebook.com/littlestar",
-  // Địa chỉ thật của Little Star
+  // Địa chỉ thật của Little Stars
   address:
     "M5-42 khu Manhattan Glory, Vinhomes Grand Park, 512 Nguyễn Xiển, KP. Long Hòa, P. Long Bình, TP. HCM",
   hours: "Thứ 2–Thứ 7: 7h30–17h00",

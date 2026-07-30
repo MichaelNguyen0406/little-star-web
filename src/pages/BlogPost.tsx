@@ -13,7 +13,7 @@ const BlogPost = () => {
 
   // Hook luôn được gọi (kể cả khi chưa có post) để tuân thủ quy tắc hooks
   useSeo({
-    title: post ? post.metaTitle : "Blog | Little Star",
+    title: post ? post.metaTitle : "Blog | Little Stars",
     description: post?.excerpt,
     image: post?.cover,
   });
@@ -32,8 +32,8 @@ const BlogPost = () => {
     description: post.excerpt,
     image: post.cover,
     datePublished: post.date,
-    author: { "@type": "Organization", name: "Little Star" },
-    publisher: { "@type": "Organization", name: "Little Star" },
+    author: { "@type": "Organization", name: "Little Stars" },
+    publisher: { "@type": "Organization", name: "Little Stars" },
   };
 
   return (
@@ -124,8 +124,8 @@ const BlogPost = () => {
               </h3>
               <p className="text-primary-foreground/85 mb-6 max-w-xl mx-auto">
                 {language === "vi"
-                  ? "Đăng ký buổi đánh giá miễn phí cùng chuyên viên Little Star ngay hôm nay."
-                  : "Book a free assessment with a Little Star specialist today."}
+                  ? "Đăng ký buổi đánh giá miễn phí cùng chuyên viên Little Stars ngay hôm nay."
+                  : "Book a free assessment with a Little Stars specialist today."}
               </p>
               <Link
                 to="/#register"

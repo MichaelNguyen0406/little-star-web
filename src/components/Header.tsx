@@ -47,7 +47,7 @@ export const Header = () => {
             <span className="inline-flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-full bg-primary text-primary-foreground text-sm md:text-base font-bold">
               LS
             </span>
-            <span>Little Star</span>
+            <span>Little Stars</span>
           </Link>
 
           {/* Desktop Navigation */}

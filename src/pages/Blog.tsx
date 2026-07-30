@@ -9,9 +9,9 @@ import { blogPosts, formatDate } from "@/data/blog";
 const Blog = () => {
   const { language } = useLanguage();
   useSeo({
-    title: "Blog kiến thức can thiệp sớm cho trẻ đặc biệt | Little Star",
+    title: "Blog kiến thức can thiệp sớm cho trẻ đặc biệt | Little Stars",
     description:
-      "Bài viết về can thiệp sớm, tự kỷ, chậm nói, các phương pháp ABA/ESDM/TEACCH/PECS — kiến thức đồng hành cùng cha mẹ từ Trung tâm Little Star.",
+      "Bài viết về can thiệp sớm, tự kỷ, chậm nói, các phương pháp ABA/ESDM/TEACCH/PECS — kiến thức đồng hành cùng cha mẹ từ Trung tâm Little Stars.",
   });
 
   return (

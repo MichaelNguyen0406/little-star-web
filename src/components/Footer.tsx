@@ -30,7 +30,7 @@ export const Footer = () => {
                 <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-primary-foreground text-lg font-bold">
                   LS
                 </span>
-                <span>Little Star</span>
+                <span>Little Stars</span>
               </Link>
               <p className="mt-4 text-sm text-background/70 leading-relaxed">
                 {t.footer.description}

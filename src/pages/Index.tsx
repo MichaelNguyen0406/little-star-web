@@ -435,7 +435,7 @@ const Index = () => {
               </div>
               <div className="relative aspect-[4/3] w-full">
                 <iframe
-                  title={language === "vi" ? "Bản đồ Little Star" : "Little Star map"}
+                  title={language === "vi" ? "Bản đồ Little Stars" : "Little Stars map"}
                   src={`https://www.google.com/maps?q=${encodeURIComponent(
                     t.cta.addressValue
                   )}&output=embed`}
