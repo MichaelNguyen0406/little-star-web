@@ -2,6 +2,14 @@ import { motion } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
 import { sections } from "@/data/sections";
 
+// Ảnh hiện khi hover (khoảnh khắc cùng bé) — TODO: thay ảnh thật
+const hoverPhotos = [
+  "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=500&q=80",
+  "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=500&q=80",
+  "https://images.unsplash.com/photo-1526634332515-d56c5fd16991?w=500&q=80",
+  "https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=500&q=80",
+];
+
 export const Team = ({ bg = "background" }: { bg?: "background" | "soft-blue" }) => {
   const { language } = useLanguage();
   const s = sections[language].team;
@@ -44,6 +52,13 @@ export const Team = ({ bg = "background" }: { bg?: "background" | "soft-blue" })
                   alt={member.name}
                   loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-[1.06]"
+                />
+                {/* Ảnh hiện khi hover */}
+                <img
+                  src={hoverPhotos[index % hoverPhotos.length]}
+                  alt={member.name}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
               </div>
