@@ -44,7 +44,12 @@ export const RegisterForm = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.1 }}
           onSubmit={handleSubmit}
-          className="max-w-4xl mx-auto rounded-[2.5rem] bg-card border-2 border-primary/20 shadow-sm p-8 md:p-12 space-y-6"
+          className="max-w-4xl mx-auto border-[26px] md:border-[46px] border-solid border-transparent p-2 md:p-5 space-y-6"
+          style={{
+            borderImageSource: "url(/images/frame.svg)",
+            borderImageSlice: 32,
+            borderImageRepeat: "stretch",
+          }}
         >
           <div className="grid sm:grid-cols-2 gap-5">
             <div className="space-y-2">
