@@ -12,9 +12,9 @@ import { Label } from "@/components/ui/label";
 export const RegisterForm = () => {
   const { language } = useLanguage();
   const s = sections[language].register;
-  // Hình dạng riêng: cắt chéo góc trên-trái & dưới-phải
-  const clip =
-    "polygon(44px 0, 100% 0, 100% calc(100% - 44px), calc(100% - 44px) 100%, 0 100%, 0 44px)";
+  // Hình dạng riêng: khung 4 góc khấc (notch) kiểu bảng khung
+  const n = "18px";
+  const clip = `polygon(${n} 0, calc(100% - ${n}) 0, calc(100% - ${n}) ${n}, 100% ${n}, 100% calc(100% - ${n}), calc(100% - ${n}) calc(100% - ${n}), calc(100% - ${n}) 100%, ${n} 100%, ${n} calc(100% - ${n}), 0 calc(100% - ${n}), 0 ${n}, ${n} ${n})`;
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ export const RegisterForm = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-10 md:mb-12"
+          className="text-center max-w-4xl mx-auto mb-10 md:mb-12"
         >
           <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-4">
             {s.label}
@@ -41,10 +41,10 @@ export const RegisterForm = () => {
           </h2>
         </motion.div>
 
-        <div className="max-w-3xl mx-auto drop-shadow-xl">
-          {/* Viền màu đơn theo hình dạng cắt góc */}
+        <div className="max-w-4xl mx-auto drop-shadow-lg">
+          {/* Viền màu đơn theo hình dạng khung góc khấc */}
           <div
-            className="p-[3px] bg-primary"
+            className="p-[2px] bg-primary"
             style={{ clipPath: clip }}
           >
             <motion.form
