@@ -27,9 +27,11 @@ export const Footer = () => {
                 to="/"
                 className="font-serif text-3xl md:text-4xl tracking-tight text-background flex items-center gap-2"
               >
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary text-primary-foreground text-lg font-bold">
-                  LS
-                </span>
+                <img
+                  src="/images/logo.webp"
+                  alt="Little Stars Preschool"
+                  className="h-14 md:h-16 w-auto object-contain"
+                />
                 <span>Little Stars</span>
               </Link>
               <p className="mt-4 text-sm text-background/70 leading-relaxed">

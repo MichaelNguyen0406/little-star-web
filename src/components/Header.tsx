@@ -42,9 +42,9 @@ export const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2.5" aria-label="Little Stars Preschool">
             <img
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="Little Stars Preschool"
-              className="h-11 md:h-12 w-auto object-contain"
+              className="h-14 md:h-16 w-auto object-contain"
             />
             <span className="font-serif text-xl md:text-2xl font-extrabold tracking-tight text-primary">
               Little Stars
