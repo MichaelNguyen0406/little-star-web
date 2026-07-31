@@ -3,9 +3,11 @@ import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { Moments } from "@/components/Moments";
+import { Methods } from "@/components/Methods";
 import { useLanguage } from "@/hooks/useLanguage";
 import { useSeo } from "@/hooks/useSeo";
 import { contactInfo } from "@/data/translations";
+import { sections } from "@/data/sections";
 
 interface Props {
   eyebrowVi: string;
@@ -15,6 +17,7 @@ interface Props {
   descVi: string;
   descEn: string;
   image: string;
+  methodsKey?: "methods" | "methodsMamNon";
 }
 
 export const PlaceholderPage = (p: Props) => {
@@ -74,6 +77,9 @@ export const PlaceholderPage = (p: Props) => {
           </div>
         </div>
       </section>
+
+      {/* Phương pháp (khác nhau theo trang) */}
+      {p.methodsKey && <Methods data={sections[language][p.methodsKey]} />}
 
       {/* Khoảnh khắc */}
       <Moments />

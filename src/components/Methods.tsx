@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
-import { sections } from "@/data/sections";
+import { sections, type MethodsContent } from "@/data/sections";
 
 // TODO: thay bằng ảnh thật minh hoạ từng phương pháp
 const methodImages = [
@@ -11,9 +11,9 @@ const methodImages = [
   "https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=700&q=80",
 ];
 
-export const Methods = () => {
+export const Methods = ({ data }: { data?: MethodsContent }) => {
   const { language } = useLanguage();
-  const s = sections[language].methods;
+  const s = data ?? sections[language].methods;
 
   return (
     <section id="methods" className="py-20 md:py-28 bg-soft-blue overflow-hidden">
