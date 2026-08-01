@@ -15,15 +15,6 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-const serviceImages = [
-  "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=900&q=80",
-  "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=900&q=80",
-  "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=900&q=80",
-  "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&q=80",
-  "https://images.unsplash.com/photo-1511949860663-92c5c57d48a7?w=900&q=80",
-  "https://images.unsplash.com/photo-1476703993599-0035a21b17a9?w=900&q=80",
-];
-
 // Ảnh cho 6 bước đồng hành — TODO: thay bằng ảnh thật
 const processImages = [
   "https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=800&q=80",
@@ -128,60 +119,6 @@ const Index = () => {
             </motion.div>
           </motion.div>
         </motion.div>
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="py-20 md:py-28 bg-background">
-        <div className="container-full">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-3">
-              {t.services.label}
-            </p>
-            <h2 className="font-serif text-3xl md:text-5xl text-foreground">
-              {t.services.title}
-            </h2>
-          </motion.div>
-
-          <Carousel opts={{ align: "start", loop: true }} className="w-full">
-            <CarouselContent className="-ml-4">
-              {t.services.items.map((service, index) => (
-                <CarouselItem key={service.title} className="pl-4 basis-4/5 sm:basis-1/2 lg:basis-1/3">
-                  <article className="group relative h-full overflow-hidden rounded-3xl bg-card border border-border/60 hover:shadow-xl transition-all duration-500">
-                    <div className="relative aspect-[4/3] overflow-hidden">
-                      <img
-                        src={serviceImages[index % serviceImages.length]}
-                        alt={service.title}
-                        loading="lazy"
-                        className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-[1.06]"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/70 via-foreground/10 to-transparent" />
-                      <span className="absolute top-4 left-4 text-[11px] font-semibold tracking-[0.2em] text-background/90">
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-                      <h3 className="absolute bottom-4 left-5 right-5 font-serif text-xl md:text-2xl text-background leading-snug">
-                        {service.title}
-                      </h3>
-                    </div>
-                    <div className="p-6 md:p-7">
-                      <p className="text-muted-foreground leading-relaxed text-sm">
-                        {service.description}
-                      </p>
-                    </div>
-                  </article>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="left-2 md:-left-4 bg-background border-border text-foreground hover:bg-primary hover:text-primary-foreground" />
-            <CarouselNext className="right-2 md:-right-4 bg-background border-border text-foreground hover:bg-primary hover:text-primary-foreground" />
-          </Carousel>
-
-        </div>
       </section>
 
       {/* Why Us Section */}
