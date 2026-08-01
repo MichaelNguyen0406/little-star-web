@@ -169,32 +169,21 @@ const Index = () => {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
-              className="space-y-5"
+              className="grid grid-cols-2 lg:grid-cols-1 gap-3 lg:gap-4"
             >
               {t.whyUs.items.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  variants={itemVariants}
-                  className={`group md:w-[94%] ${index % 2 === 1 ? "md:ml-auto" : ""}`}
-                >
-                  {/* Viền gradient */}
-                  <div className="rounded-tl-[2.2rem] rounded-br-[2.2rem] rounded-tr-lg rounded-bl-lg bg-gradient-to-br from-primary/30 via-secondary/30 to-accent/25 p-[1.5px] transition-all duration-500 group-hover:from-primary group-hover:via-secondary group-hover:to-accent group-hover:shadow-xl group-hover:-translate-y-0.5">
-                    <div className="relative overflow-hidden rounded-tl-[2.1rem] rounded-br-[2.1rem] rounded-tr-[0.4rem] rounded-bl-[0.4rem] bg-background p-6 md:p-7">
-                      {/* Vệt màu quét khi hover */}
-                      <span className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/[0.06] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <div className="relative">
-                        <span className="inline-flex items-center gap-2 font-serif text-sm font-bold text-primary mb-3">
-                          <span className="w-6 h-[2px] bg-primary rounded-full" />
-                          {String(index + 1).padStart(2, "0")}
-                        </span>
-                        <h3 className="font-serif text-lg md:text-xl font-semibold mb-2 text-foreground">
-                          {item.title}
-                        </h3>
-                        <p className="text-sm text-muted-foreground leading-relaxed">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
+                <motion.div key={item.title} variants={itemVariants} className="group h-full">
+                  <div className="h-full rounded-2xl border border-border bg-background p-5 hover:border-primary hover:shadow-lg transition-all duration-300">
+                    <span className="inline-flex items-center gap-2 font-serif text-sm font-bold text-primary mb-2">
+                      <span className="w-5 h-[2px] bg-primary rounded-full" />
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <h3 className="font-serif text-base md:text-lg font-semibold mb-1.5 text-foreground">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {item.description}
+                    </p>
                   </div>
                 </motion.div>
               ))}
