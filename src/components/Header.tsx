@@ -30,35 +30,28 @@ export const Header = () => {
     { to: "/#register", label: t.nav.contact },
   ];
 
-  // Đổi ngôn ngữ — cờ tròn (sang, trực quan)
+  // Đổi ngôn ngữ — VN | EN (đơn giản, sạch)
   const LangSwitch = () => (
-    <div className="flex items-center gap-2">
-      {(
-        [
-          { code: "vi", flag: "vn", name: "Tiếng Việt" },
-          { code: "en", flag: "gb", name: "English" },
-        ] as const
-      ).map((o) => (
-        <button
-          key={o.code}
-          onClick={() => setLanguage(o.code)}
-          aria-label={o.name}
-          title={o.name}
-          className={cn(
-            "rounded-full overflow-hidden transition-all duration-300",
-            language === o.code
-              ? "ring-2 ring-accent ring-offset-2 ring-offset-white scale-110 shadow-md"
-              : "opacity-45 grayscale hover:opacity-90 hover:grayscale-0"
-          )}
-        >
-          <img
-            src={`https://flagcdn.com/w80/${o.flag}.png`}
-            alt={o.name}
-            loading="lazy"
-            className="w-7 h-7 object-cover"
-          />
-        </button>
-      ))}
+    <div className="flex items-center gap-2 text-sm font-bold select-none">
+      <button
+        onClick={() => setLanguage("vi")}
+        className={cn(
+          "transition-colors duration-300",
+          language === "vi" ? "text-primary" : "text-muted-foreground hover:text-foreground"
+        )}
+      >
+        VN
+      </button>
+      <span className="text-border">|</span>
+      <button
+        onClick={() => setLanguage("en")}
+        className={cn(
+          "transition-colors duration-300",
+          language === "en" ? "text-primary" : "text-muted-foreground hover:text-foreground"
+        )}
+      >
+        EN
+      </button>
     </div>
   );
 
