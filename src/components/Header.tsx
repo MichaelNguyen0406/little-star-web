@@ -30,31 +30,33 @@ export const Header = () => {
     { to: "/#register", label: t.nav.contact },
   ];
 
-  // Đổi ngôn ngữ — viên xanh trượt mượt trên nền sáng
-  const LangSwitch = ({ id }: { id: string }) => (
-    <div className="relative flex items-center rounded-full bg-muted p-1 text-xs font-extrabold select-none">
-      {(["vi", "en"] as const).map((lng) => (
+  // Đổi ngôn ngữ — cờ tròn (sang, trực quan)
+  const LangSwitch = () => (
+    <div className="flex items-center gap-2">
+      {(
+        [
+          { code: "vi", flag: "vn", name: "Tiếng Việt" },
+          { code: "en", flag: "gb", name: "English" },
+        ] as const
+      ).map((o) => (
         <button
-          key={lng}
-          onClick={() => setLanguage(lng)}
-          className="relative z-10 px-2.5 py-1.5 rounded-full"
-          aria-label={lng === "vi" ? "Tiếng Việt" : "English"}
-        >
-          {language === lng && (
-            <motion.span
-              layoutId={`langKnob-${id}`}
-              className="absolute inset-0 rounded-full bg-primary"
-              transition={{ type: "spring", stiffness: 500, damping: 34 }}
-            />
+          key={o.code}
+          onClick={() => setLanguage(o.code)}
+          aria-label={o.name}
+          title={o.name}
+          className={cn(
+            "rounded-full overflow-hidden transition-all duration-300",
+            language === o.code
+              ? "ring-2 ring-accent ring-offset-2 ring-offset-white scale-110 shadow-md"
+              : "opacity-45 grayscale hover:opacity-90 hover:grayscale-0"
           )}
-          <span
-            className={cn(
-              "relative transition-colors duration-300",
-              language === lng ? "text-white" : "text-muted-foreground hover:text-foreground"
-            )}
-          >
-            {lng === "vi" ? "VN" : "EN"}
-          </span>
+        >
+          <img
+            src={`https://flagcdn.com/w80/${o.flag}.png`}
+            alt={o.name}
+            loading="lazy"
+            className="w-7 h-7 object-cover"
+          />
         </button>
       ))}
     </div>
@@ -114,7 +116,7 @@ export const Header = () => {
             })}
           </nav>
 
-          <LangSwitch id="desktop" />
+          <LangSwitch />
 
           <a
             href={`tel:+${contactInfo.phoneDigits}`}
@@ -127,7 +129,7 @@ export const Header = () => {
 
         {/* Mobile: lang + hamburger */}
         <div className="md:hidden flex items-center gap-3">
-          <LangSwitch id="mobile" />
+          <LangSwitch />
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Menu"
