@@ -66,7 +66,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section ref={heroRef} className="relative min-h-[100svh] -mt-20 md:-mt-24 overflow-hidden flex items-center">
+      <section ref={heroRef} className="relative min-h-[100svh] overflow-hidden flex items-center">
         <motion.div className="absolute inset-0" style={{ y: heroImageY }}>
           <img
             src="https://images.unsplash.com/photo-1609220136736-443140cffec6?w=1920&q=80"

@@ -29,7 +29,7 @@ const About = () => {
   return (
     <Layout>
       {/* Hero */}
-      <section ref={heroRef} className="relative h-[70vh] md:h-[80vh] -mt-20 md:-mt-24 overflow-hidden">
+      <section ref={heroRef} className="relative h-[70vh] md:h-[80vh] overflow-hidden">
         <motion.div className="absolute inset-0" style={{ y: heroImageY }}>
           <img
             src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=1920&q=80"
