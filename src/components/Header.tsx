@@ -72,7 +72,7 @@ export const Header = () => {
               scrolled ? "h-11 lg:h-14" : "h-14 lg:h-[70px]"
             )}
           />
-          <span className="font-sans text-lg lg:text-xl font-semibold tracking-tight text-primary">
+          <span className="font-sans text-2xl lg:text-3xl font-semibold tracking-tight text-primary">
             Little Stars
           </span>
         </Link>
