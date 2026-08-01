@@ -30,25 +30,19 @@ export const Header = () => {
     { to: "/#register", label: t.nav.contact },
   ];
 
-  // Đổi ngôn ngữ — VN | EN (đơn giản, sạch)
+  // Đổi ngôn ngữ — VN | EN (chữ trắng trên khối xanh)
   const LangSwitch = () => (
     <div className="flex items-center gap-2 text-sm font-bold select-none">
       <button
         onClick={() => setLanguage("vi")}
-        className={cn(
-          "transition-colors duration-300",
-          language === "vi" ? "text-primary" : "text-muted-foreground hover:text-foreground"
-        )}
+        className={cn("transition-colors duration-300", language === "vi" ? "text-white" : "text-white/55 hover:text-white/85")}
       >
         VN
       </button>
-      <span className="text-border">|</span>
+      <span className="text-white/40">|</span>
       <button
         onClick={() => setLanguage("en")}
-        className={cn(
-          "transition-colors duration-300",
-          language === "en" ? "text-primary" : "text-muted-foreground hover:text-foreground"
-        )}
+        className={cn("transition-colors duration-300", language === "en" ? "text-white" : "text-white/55 hover:text-white/85")}
       >
         EN
       </button>
@@ -58,17 +52,17 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 bg-white border-b transition-all duration-300",
-        scrolled ? "border-border shadow-md" : "border-border/50"
+        "sticky top-0 z-50 bg-white transition-shadow duration-300",
+        scrolled ? "shadow-md" : ""
       )}
     >
       <div
         className={cn(
-          "container-full flex items-center justify-between transition-all duration-300",
+          "container-full flex items-stretch justify-between transition-all duration-300",
           scrolled ? "h-16 lg:h-20" : "h-20 lg:h-24"
         )}
       >
-        {/* Logo */}
+        {/* Logo (trái, trên nền trắng) */}
         <Link to="/" className="flex items-center gap-2.5 shrink-0" aria-label="Little Stars Preschool">
           <img
             src="/images/logo.webp"
@@ -83,8 +77,8 @@ export const Header = () => {
           </span>
         </Link>
 
-        {/* Desktop: nav + lang + CTA */}
-        <div className="hidden md:flex items-center gap-6 lg:gap-8">
+        {/* Khối xanh phải: menu + đổi ngữ + CTA (desktop) */}
+        <div className="hidden md:flex items-center gap-6 lg:gap-8 bg-primary text-white pl-10 pr-6 lg:pr-12 -mr-6 lg:-mr-12 rounded-bl-[3rem] lg:rounded-bl-[5rem]">
           <nav className="flex items-center gap-5 lg:gap-7">
             {navLinks.map((link) => {
               const active = isActive(link.to);
@@ -93,8 +87,8 @@ export const Header = () => {
                   key={link.to}
                   to={link.to}
                   className={cn(
-                    "group relative text-[14px] font-semibold py-1 transition-colors duration-300",
-                    active ? "text-primary" : "text-foreground/70 hover:text-primary"
+                    "group relative text-[13.5px] font-semibold py-1 transition-colors duration-300",
+                    active ? "text-white" : "text-white/80 hover:text-white"
                   )}
                 >
                   {link.label}
@@ -120,13 +114,13 @@ export const Header = () => {
           </a>
         </div>
 
-        {/* Mobile: lang + hamburger */}
-        <div className="md:hidden flex items-center gap-3">
+        {/* Khối xanh phải: đổi ngữ + hamburger (mobile) */}
+        <div className="md:hidden flex items-center gap-4 bg-primary text-white pl-5 pr-6 -mr-6 rounded-bl-[1.75rem]">
           <LangSwitch />
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Menu"
-            className="p-1 text-primary active:scale-90 transition-transform"
+            className="p-1 active:scale-90 transition-transform"
           >
             <AnimatePresence mode="wait">
               {mobileMenuOpen ? (
