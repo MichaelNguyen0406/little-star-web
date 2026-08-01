@@ -30,22 +30,23 @@ export const Header = () => {
     { to: "/#register", label: t.nav.contact },
   ];
 
-  // Chuyển ngôn ngữ kiểu "VN | EN"
+  // Chuyển ngôn ngữ — pill có chip vàng brand (chất riêng)
   const LangSwitch = () => (
-    <div className="flex items-center gap-1.5 text-sm font-bold select-none">
-      <button
-        onClick={() => setLanguage("vi")}
-        className={cn("transition-colors", language === "vi" ? "text-white" : "text-white/50 hover:text-white/80")}
-      >
-        VN
-      </button>
-      <span className="text-white/40">|</span>
-      <button
-        onClick={() => setLanguage("en")}
-        className={cn("transition-colors", language === "en" ? "text-white" : "text-white/50 hover:text-white/80")}
-      >
-        EN
-      </button>
+    <div className="flex items-center gap-1 rounded-full bg-white/15 p-1 select-none">
+      {(["vi", "en"] as const).map((lng) => (
+        <button
+          key={lng}
+          onClick={() => setLanguage(lng)}
+          className={cn(
+            "px-2.5 py-1 text-xs font-extrabold rounded-full transition-all duration-300",
+            language === lng
+              ? "bg-accent text-accent-foreground shadow-sm"
+              : "text-white/70 hover:text-white"
+          )}
+        >
+          {lng === "vi" ? "VN" : "EN"}
+        </button>
+      ))}
     </div>
   );
 
@@ -111,7 +112,7 @@ export const Header = () => {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Menu"
-            className="p-1"
+            className="p-1.5 -mr-1 active:scale-90 transition-transform"
           >
             <AnimatePresence mode="wait">
               {mobileMenuOpen ? (
@@ -122,7 +123,7 @@ export const Header = () => {
                   exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <X className="w-6 h-6" />
+                  <X className="w-9 h-9" strokeWidth={2.5} />
                 </motion.div>
               ) : (
                 <motion.div
@@ -132,7 +133,7 @@ export const Header = () => {
                   exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Menu className="w-6 h-6" />
+                  <Menu className="w-9 h-9" strokeWidth={2.5} />
                 </motion.div>
               )}
             </AnimatePresence>
