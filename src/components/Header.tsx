@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { Menu, X, Phone, Globe } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, Phone, Globe, Mail, Clock } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -11,6 +11,9 @@ export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
   const { language, toggleLanguage, setLanguage } = useLanguage();
   const t = translations[language];
+  const { pathname } = useLocation();
+  const isActive = (to: string) =>
+    !to.includes("#") && (to === "/" ? pathname === "/" : pathname.startsWith(to));
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,6 +41,37 @@ export const Header = () => {
           : "bg-primary/95 backdrop-blur-sm"
       )}
     >
+      {/* Thanh tiện ích trên cùng (desktop) — thu gọn khi cuộn */}
+      <div
+        className={cn(
+          "hidden md:block border-b border-white/10 overflow-hidden transition-all duration-500",
+          scrolled ? "max-h-0 opacity-0" : "max-h-12 opacity-100"
+        )}
+      >
+        <div className="container-full flex items-center justify-between h-10 text-[12.5px] text-white/75">
+          <div className="flex items-center gap-6">
+            <a
+              href={`tel:+${contactInfo.phoneDigits}`}
+              className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
+            >
+              <Phone className="w-3.5 h-3.5 text-accent" />
+              {contactInfo.phone}
+            </a>
+            <a
+              href={`mailto:${contactInfo.email}`}
+              className="inline-flex items-center gap-1.5 hover:text-white transition-colors"
+            >
+              <Mail className="w-3.5 h-3.5 text-accent" />
+              {contactInfo.email}
+            </a>
+          </div>
+          <div className="inline-flex items-center gap-1.5">
+            <Clock className="w-3.5 h-3.5 text-accent" />
+            {contactInfo.hours}
+          </div>
+        </div>
+      </div>
+
       <nav className="container-full">
         <div
           className={cn(
@@ -61,16 +95,28 @@ export const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-5 lg:gap-7">
-            {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className="text-xs font-semibold tracking-[0.1em] uppercase text-white/85 hover:text-white transition-colors duration-300 link-underline"
-              >
-                {link.label}
-              </Link>
-            ))}
+          <div className="hidden md:flex items-center gap-6 lg:gap-8">
+            {navLinks.map((link) => {
+              const active = isActive(link.to);
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className={cn(
+                    "group relative text-[13px] font-semibold tracking-[0.08em] uppercase py-1 transition-colors duration-300",
+                    active ? "text-white" : "text-white/75 hover:text-white"
+                  )}
+                >
+                  {link.label}
+                  <span
+                    className={cn(
+                      "pointer-events-none absolute -bottom-0.5 left-0 h-0.5 rounded-full bg-accent transition-all duration-300",
+                      active ? "w-full" : "w-0 group-hover:w-full"
+                    )}
+                  />
+                </Link>
+              );
+            })}
           </div>
 
           {/* Right side actions */}
@@ -104,7 +150,7 @@ export const Header = () => {
             {/* Call Now Button */}
             <a
               href={`tel:+${contactInfo.phoneDigits}`}
-              className="hidden md:inline-flex items-center gap-2 px-4 py-2 bg-accent text-accent-foreground rounded-full text-sm font-semibold hover:bg-accent/90 transition-colors duration-300"
+              className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-accent-foreground rounded-full text-sm font-bold shadow-md hover:bg-accent/90 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
             >
               <Phone className="w-4 h-4" />
               {t.nav.callNow}
