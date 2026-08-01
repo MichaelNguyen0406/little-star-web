@@ -58,7 +58,7 @@ export const Header = () => {
     >
       <div
         className={cn(
-          "container-full flex items-stretch justify-between transition-all duration-300",
+          "w-full px-6 lg:px-12 flex items-stretch justify-between transition-all duration-300",
           scrolled ? "h-16 lg:h-20" : "h-20 lg:h-24"
         )}
       >
