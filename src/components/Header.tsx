@@ -30,21 +30,31 @@ export const Header = () => {
     { to: "/#register", label: t.nav.contact },
   ];
 
-  // Chuyển ngôn ngữ — pill có chip vàng brand (chất riêng)
-  const LangSwitch = () => (
-    <div className="flex items-center gap-1 rounded-full bg-white/15 p-1 select-none">
+  // Chuyển ngôn ngữ — toggle có viên vàng trượt mượt (chất riêng)
+  const LangSwitch = ({ id }: { id: string }) => (
+    <div className="relative flex items-center rounded-full bg-white/15 p-1 text-xs font-extrabold select-none">
       {(["vi", "en"] as const).map((lng) => (
         <button
           key={lng}
           onClick={() => setLanguage(lng)}
-          className={cn(
-            "px-2.5 py-1 text-xs font-extrabold rounded-full transition-all duration-300",
-            language === lng
-              ? "bg-accent text-accent-foreground shadow-sm"
-              : "text-white/70 hover:text-white"
-          )}
+          className="relative z-10 px-2.5 py-1.5 rounded-full"
+          aria-label={lng === "vi" ? "Tiếng Việt" : "English"}
         >
-          {lng === "vi" ? "VN" : "EN"}
+          {language === lng && (
+            <motion.span
+              layoutId={`langKnob-${id}`}
+              className="absolute inset-0 rounded-full bg-accent"
+              transition={{ type: "spring", stiffness: 500, damping: 34 }}
+            />
+          )}
+          <span
+            className={cn(
+              "relative transition-colors duration-300",
+              language === lng ? "text-accent-foreground" : "text-white/70 hover:text-white"
+            )}
+          >
+            {lng === "vi" ? "VN" : "EN"}
+          </span>
         </button>
       ))}
     </div>
@@ -102,13 +112,13 @@ export const Header = () => {
             );
           })}
           <div className="pl-1">
-            <LangSwitch />
+            <LangSwitch id="desktop" />
           </div>
         </div>
 
         {/* Controls mobile trên khối bo góc */}
         <div className="md:hidden flex items-center gap-4 bg-primary text-white pl-5 pr-6 -mr-6 rounded-bl-[1.75rem]">
-          <LangSwitch />
+          <LangSwitch id="mobile" />
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Menu"
