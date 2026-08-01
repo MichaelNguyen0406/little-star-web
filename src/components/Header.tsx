@@ -1,9 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
-import { translations } from "@/data/translations";
+import { translations, contactInfo } from "@/data/translations";
 import { cn } from "@/lib/utils";
 
 export const Header = () => {
@@ -30,9 +30,9 @@ export const Header = () => {
     { to: "/#register", label: t.nav.contact },
   ];
 
-  // Chuyển ngôn ngữ — toggle có viên vàng trượt mượt (chất riêng)
+  // Đổi ngôn ngữ — viên xanh trượt mượt trên nền sáng
   const LangSwitch = ({ id }: { id: string }) => (
-    <div className="relative flex items-center rounded-full bg-white/15 p-1 text-xs font-extrabold select-none">
+    <div className="relative flex items-center rounded-full bg-muted p-1 text-xs font-extrabold select-none">
       {(["vi", "en"] as const).map((lng) => (
         <button
           key={lng}
@@ -43,14 +43,14 @@ export const Header = () => {
           {language === lng && (
             <motion.span
               layoutId={`langKnob-${id}`}
-              className="absolute inset-0 rounded-full bg-accent"
+              className="absolute inset-0 rounded-full bg-primary"
               transition={{ type: "spring", stiffness: 500, damping: 34 }}
             />
           )}
           <span
             className={cn(
               "relative transition-colors duration-300",
-              language === lng ? "text-accent-foreground" : "text-white/70 hover:text-white"
+              language === lng ? "text-white" : "text-muted-foreground hover:text-foreground"
             )}
           >
             {lng === "vi" ? "VN" : "EN"}
@@ -63,18 +63,18 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 bg-white transition-shadow duration-300",
-        scrolled ? "shadow-md" : ""
+        "sticky top-0 z-50 bg-white border-b transition-all duration-300",
+        scrolled ? "border-border shadow-md" : "border-border/50"
       )}
     >
       <div
         className={cn(
-          "container-full flex items-stretch justify-between transition-all duration-300",
+          "container-full flex items-center justify-between transition-all duration-300",
           scrolled ? "h-16 lg:h-20" : "h-20 lg:h-24"
         )}
       >
-        {/* Logo (trái, nền trắng) */}
-        <Link to="/" className="flex items-center gap-2.5" aria-label="Little Stars Preschool">
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2.5 shrink-0" aria-label="Little Stars Preschool">
           <img
             src="/images/logo.webp"
             alt="Little Stars Preschool"
@@ -88,41 +88,50 @@ export const Header = () => {
           </span>
         </Link>
 
-        {/* Menu trên khối bo góc organic (desktop) */}
-        <div className="hidden md:flex items-center gap-6 lg:gap-8 bg-primary text-white pl-10 pr-6 lg:pr-12 -mr-6 lg:-mr-12 rounded-bl-[2.5rem] lg:rounded-bl-[4rem]">
-          {navLinks.map((link) => {
-            const active = isActive(link.to);
-            return (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={cn(
-                  "group relative text-[13px] font-semibold tracking-[0.04em] transition-colors duration-300",
-                  active ? "text-white" : "text-white/80 hover:text-white"
-                )}
-              >
-                {link.label}
-                <span
+        {/* Desktop: nav + lang + CTA */}
+        <div className="hidden md:flex items-center gap-6 lg:gap-8">
+          <nav className="flex items-center gap-5 lg:gap-7">
+            {navLinks.map((link) => {
+              const active = isActive(link.to);
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
                   className={cn(
-                    "pointer-events-none absolute -bottom-1.5 left-0 h-0.5 rounded-full bg-accent transition-all duration-300",
-                    active ? "w-full" : "w-0 group-hover:w-full"
+                    "group relative text-[14px] font-semibold py-1 transition-colors duration-300",
+                    active ? "text-primary" : "text-foreground/70 hover:text-primary"
                   )}
-                />
-              </Link>
-            );
-          })}
-          <div className="pl-1">
-            <LangSwitch id="desktop" />
-          </div>
+                >
+                  {link.label}
+                  <span
+                    className={cn(
+                      "pointer-events-none absolute -bottom-1 left-0 h-[3px] rounded-full bg-accent transition-all duration-300",
+                      active ? "w-full" : "w-0 group-hover:w-full"
+                    )}
+                  />
+                </Link>
+              );
+            })}
+          </nav>
+
+          <LangSwitch id="desktop" />
+
+          <a
+            href={`tel:+${contactInfo.phoneDigits}`}
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-accent-foreground rounded-full text-sm font-bold shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300"
+          >
+            <Phone className="w-4 h-4" />
+            {t.nav.callNow}
+          </a>
         </div>
 
-        {/* Controls mobile trên khối bo góc */}
-        <div className="md:hidden flex items-center gap-4 bg-primary text-white pl-5 pr-6 -mr-6 rounded-bl-[1.75rem]">
+        {/* Mobile: lang + hamburger */}
+        <div className="md:hidden flex items-center gap-3">
           <LangSwitch id="mobile" />
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Menu"
-            className="p-1.5 -mr-1 active:scale-90 transition-transform"
+            className="p-1 text-primary active:scale-90 transition-transform"
           >
             <AnimatePresence mode="wait">
               {mobileMenuOpen ? (
@@ -183,6 +192,13 @@ export const Header = () => {
                   </Link>
                 </motion.div>
               ))}
+              <a
+                href={`tel:+${contactInfo.phoneDigits}`}
+                className="mt-3 inline-flex w-full items-center justify-center gap-2 px-5 py-3 bg-accent text-accent-foreground rounded-full text-sm font-bold"
+              >
+                <Phone className="w-4 h-4" />
+                {t.nav.callNow}
+              </a>
             </div>
           </motion.div>
         )}
