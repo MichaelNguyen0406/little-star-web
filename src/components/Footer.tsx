@@ -28,7 +28,7 @@ export const Footer = () => {
                 className="font-serif text-3xl md:text-4xl tracking-tight text-background flex items-center gap-2"
               >
                 <img
-                  src="/images/logo.webp"
+                  src="/images/logo-mark.webp"
                   alt="Little Stars Preschool"
                   className="h-14 md:h-16 w-auto object-contain"
                 />

@@ -65,11 +65,11 @@ export const Header = () => {
         {/* Logo (trái, trên nền trắng) */}
         <Link to="/" className="flex items-center gap-2.5 shrink-0" aria-label="Little Stars Preschool">
           <img
-            src="/images/logo.webp"
+            src="/images/logo-mark.webp"
             alt="Little Stars Preschool"
             className={cn(
               "w-auto object-contain transition-all duration-300",
-              scrolled ? "h-11 lg:h-14" : "h-14 lg:h-[70px]"
+              scrolled ? "h-9 lg:h-11" : "h-11 lg:h-14"
             )}
           />
           <span className="font-sans text-2xl lg:text-3xl font-semibold tracking-tight text-primary">
