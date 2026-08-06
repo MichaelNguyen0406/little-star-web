@@ -52,7 +52,7 @@ export const Header = () => {
   return (
     <header
       className={cn(
-        "sticky top-0 z-50 bg-white transition-shadow duration-300",
+        "sticky top-0 z-50 bg-background transition-shadow duration-300",
         scrolled ? "shadow-md" : ""
       )}
     >
@@ -157,7 +157,7 @@ export const Header = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] as const }}
-            className="md:hidden bg-white border-t border-border overflow-hidden"
+            className="md:hidden bg-background border-t border-border overflow-hidden"
           >
             <div className="container-full py-4 space-y-1">
               {navLinks.map((link, i) => (

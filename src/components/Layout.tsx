@@ -30,7 +30,7 @@ const pageVariants = {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen flex flex-col pb-20 md:pb-0">
+    <div className="min-h-screen flex flex-col pb-20 md:pb-0 overflow-x-clip">
       <Header />
       <motion.main
         className="flex-1"

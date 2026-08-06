@@ -320,6 +320,36 @@
   animation-delay: -7s;
 }
 
+/* Khung ảnh Hero — shape "chiếc lá": 2 góc đối bo cực lớn, 2 góc còn lại vuông */
+.hero-blob {
+  border-radius: 38% 0 38% 0;
+}
+
+/* Sao lấp lánh (thương hiệu Little Stars) */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.8) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.1) rotate(15deg); }
+}
+.animate-twinkle {
+  animation: twinkle 3.2s ease-in-out infinite;
+}
+
+/* Thẻ nổi trôi nhẹ */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.animate-float-slow {
+  animation: float-slow 5.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-twinkle,
+  .animate-float-slow {
+    animation: none;
+  }
+}
+
 /* Chữ viết tắt outline (viền rỗng), điền màu khi hover */
 .acronym-outline {
   -webkit-text-stroke: 2px hsl(var(--little-star-blue));

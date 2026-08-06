@@ -42,6 +42,12 @@ interface Translation {
     title: string;
     items: ServiceItem[];
   };
+  concerns: {
+    label: string;
+    title: string;
+    items: string[];
+    closing: string;
+  };
   whyUs: {
     label: string;
     title: string;
@@ -125,6 +131,18 @@ export const translations: Record<Language, Translation> = {
       ctaFacebook: "Facebook",
       urgency: "Can thiệp càng sớm, cơ hội của con càng lớn — đừng chờ đợi.",
     },
+    concerns: {
+      label: "Chúng tôi hiểu",
+      title: "Những trăn trở của cha mẹ",
+      items: [
+        "Tôi sợ đánh giá sai, mỗi nơi lại cho một kết quả khác nhau.",
+        "Con học một nơi, trị liệu một nơi — không theo lộ trình thống nhất.",
+        "Con còn quá nhỏ, tôi không biết khi nào mới là lúc nên can thiệp.",
+        "Tôi chỉ mong một nơi an toàn, không ai nhìn con bằng ánh mắt khác biệt.",
+        "Tôi muốn con được đồng hành lâu dài, không phải đổi trường liên tục.",
+      ],
+      closing: "Little Stars ở đây để cùng bạn tháo gỡ từng nỗi lo ấy.",
+    },
     services: {
       label: "Dịch vụ",
       title: "Hành trình đồng hành cùng con",
@@ -187,6 +205,11 @@ export const translations: Record<Language, Translation> = {
           icon: Heart,
           title: "Lấy gia đình làm trung tâm",
           description: "Ấm áp, minh bạch và đồng hành cùng cha mẹ trong suốt hành trình.",
+        },
+        {
+          icon: MapPin,
+          title: "Không gian chuẩn giác quan",
+          description: "Lớp học được thiết kế có chủ đích, tối ưu cho cảm xúc và giác quan của trẻ.",
         },
       ],
     },
@@ -323,6 +346,18 @@ export const translations: Record<Language, Translation> = {
       ctaFacebook: "Facebook",
       urgency: "The earlier the intervention, the brighter the child's future — don't wait.",
     },
+    concerns: {
+      label: "We understand",
+      title: "The worries every parent carries",
+      items: [
+        "I'm afraid of a wrong assessment — every place gives a different result.",
+        "My child learns in one place and gets therapy in another, with no unified plan.",
+        "My child is so young; I don't know when the right time to intervene is.",
+        "I just want a safe place where no one looks at my child differently.",
+        "I want long-term support, not switching schools over and over.",
+      ],
+      closing: "Little Stars is here to work through each of these worries with you.",
+    },
     services: {
       label: "Services",
       title: "A journey alongside your child",
@@ -385,6 +420,11 @@ export const translations: Record<Language, Translation> = {
           icon: Heart,
           title: "Family-Centered",
           description: "Warm, transparent, and walking alongside parents every step of the way.",
+        },
+        {
+          icon: MapPin,
+          title: "Sensory-Ready Spaces",
+          description: "Classrooms designed with intention, optimized for children's emotions and senses.",
         },
       ],
     },
