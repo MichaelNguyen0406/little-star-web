@@ -1,21 +1,47 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
+// Khôi phục vị trí cuộn khi reload (SPA): tự lưu scrollY và khôi phục lại
+// SAU khi React render + ảnh/layout ổn định (retry tới khi trang đủ cao).
 export const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
   const isFirst = useRef(true);
+  const restoring = useRef(false);
 
+  // Tự quản lý khôi phục cuộn + lưu vị trí liên tục
   useEffect(() => {
-    // Cho phép trình duyệt tự khôi phục vị trí khi reload (trang không có neo)
     if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "auto";
+      window.history.scrollRestoration = "manual";
     }
 
-    // 1) URL có neo (#contact, #services...) → cuộn tới đúng section
+    let ticking = false;
+    const save = () => {
+      if (restoring.current || ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        sessionStorage.setItem(
+          "scroll:" + window.location.pathname,
+          String(Math.round(window.scrollY))
+        );
+        ticking = false;
+      });
+    };
+
+    window.addEventListener("scroll", save, { passive: true });
+    window.addEventListener("pagehide", save);
+    window.addEventListener("beforeunload", save);
+    return () => {
+      window.removeEventListener("scroll", save);
+      window.removeEventListener("pagehide", save);
+      window.removeEventListener("beforeunload", save);
+    };
+  }, []);
+
+  useEffect(() => {
+    // 1) URL có neo (#about-us, #register...) → cuộn tới đúng section
     if (hash) {
       const id = hash.slice(1);
       const firstLoad = isFirst.current;
-
       const scrollToEl = (behavior: ScrollBehavior) => {
         const el = document.getElementById(id);
         if (el) {
@@ -24,8 +50,6 @@ export const ScrollToTop = () => {
         }
         return false;
       };
-
-      // Thử liên tục cho tới khi element xuất hiện (trang render/ảnh tải xong)
       let tries = 0;
       const interval = window.setInterval(() => {
         tries += 1;
@@ -33,12 +57,9 @@ export const ScrollToTop = () => {
           window.clearInterval(interval);
         }
       }, 60);
-
-      // Căn lại lần cuối sau khi ảnh/layout ổn định (tránh bị trôi)
       const onLoad = () => scrollToEl("auto");
       window.addEventListener("load", onLoad);
       const settle = window.setTimeout(() => scrollToEl("auto"), 700);
-
       isFirst.current = false;
       return () => {
         window.clearInterval(interval);
@@ -47,11 +68,41 @@ export const ScrollToTop = () => {
       };
     }
 
-    // 2) Không có neo:
+    // 2) Lần tải đầu / reload (không có neo) → khôi phục vị trí đã lưu
     if (isFirst.current) {
-      // Lần tải đầu / reload → để trình duyệt tự xử lý (không ép cuộn lên đầu)
       isFirst.current = false;
-      return;
+      const saved = parseInt(
+        sessionStorage.getItem("scroll:" + pathname) || "0",
+        10
+      );
+      if (!saved || saved < 5) return;
+
+      restoring.current = true;
+      const html = document.documentElement;
+      const prevBehavior = html.style.scrollBehavior;
+      html.style.scrollBehavior = "auto"; // khôi phục tức thì, không animate
+
+      let tries = 0;
+      const iv = window.setInterval(() => {
+        window.scrollTo(0, saved);
+        tries += 1;
+        const maxScroll = html.scrollHeight - window.innerHeight;
+        const reached = Math.abs(window.scrollY - saved) < 2;
+        if (reached || saved > maxScroll - 2 || tries > 60) {
+          window.clearInterval(iv);
+          html.style.scrollBehavior = prevBehavior;
+          restoring.current = false;
+        }
+      }, 40);
+
+      const onLoad = () => window.scrollTo(0, saved);
+      window.addEventListener("load", onLoad);
+      return () => {
+        window.clearInterval(iv);
+        window.removeEventListener("load", onLoad);
+        html.style.scrollBehavior = prevBehavior;
+        restoring.current = false;
+      };
     }
 
     // 3) Chuyển trang thật sự (đổi pathname) → về đầu trang
