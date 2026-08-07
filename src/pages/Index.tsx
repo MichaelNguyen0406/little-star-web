@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ChevronDown, ArrowRight, Phone } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { QuoteBanner } from "@/components/QuoteBanner";
 import { RegisterForm } from "@/components/RegisterForm";
 import { useLanguage } from "@/hooks/useLanguage";
 import { translations, contactInfo } from "@/data/translations";
-import { cn } from "@/lib/utils";
 import {
   Carousel,
   CarouselContent,
@@ -14,23 +14,27 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-// Ảnh cho 4 card "Tại sao chọn Little Stars" — TODO: thay bằng ảnh thật
-const whyImages = [
-  "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=800&q=80",
-  "https://images.unsplash.com/photo-1526634332515-d56c5fd16991?w=800&q=80",
-  "https://images.unsplash.com/photo-1516627145497-ae6968895b74?w=800&q=80",
-  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80",
-  "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800&q=80",
-];
-
-// Màu nền xen kẽ cho các thẻ trích dẫn trong panel "Nỗi lo"
-const quoteCardStyles = [
-  "bg-secondary text-secondary-foreground",
-  "bg-card text-foreground",
-  "bg-accent text-accent-foreground",
-  "bg-soft-blue text-foreground",
-  "bg-white text-foreground",
-];
+// 2 thẻ chương trình ở trang chủ — dẫn sang trang Mầm non / Can thiệp
+const programCards = [
+  {
+    to: "/mam-non",
+    image: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=1000&q=80",
+    title: { vi: "Mầm non", en: "Preschool" },
+    desc: {
+      vi: "Chương trình mầm non hiện đại — Montessori, STEAM — giúp con phát triển toàn diện qua trải nghiệm và vui chơi.",
+      en: "A modern preschool — Montessori, STEAM — helping children grow holistically through experience and play.",
+    },
+  },
+  {
+    to: "/can-thiep",
+    image: "https://images.unsplash.com/photo-1544776193-352d25ca82cd?w=1000&q=80",
+    title: { vi: "Can thiệp sớm", en: "Early Intervention" },
+    desc: {
+      vi: "Đánh giá rõ ràng, lộ trình cá nhân hoá 1:1 và phương pháp khoa học cho trẻ 0–6 tuổi có nhu cầu đặc biệt.",
+      en: "Clear assessment, personalized 1:1 plans and evidence-based methods for children aged 0–6 with special needs.",
+    },
+  },
+] as const;
 
 // Ảnh cho 6 bước đồng hành — TODO: thay bằng ảnh thật
 const processImages = [
@@ -126,7 +130,7 @@ const Index = () => {
                 href="#register"
                 className="group inline-flex items-center justify-center gap-3 rounded-full bg-accent text-accent-foreground px-10 py-6 text-xl font-bold shadow-lg shadow-accent/30 hover:-translate-y-0.5 transition-transform duration-300"
               >
-                {language === "vi" ? "Đăng ký tư vấn 1:1" : "Book a 1:1 consultation"}
+                {language === "vi" ? "Đăng ký tư vấn" : "Book a consultation"}
                 <ArrowRight className="w-7 h-7 group-hover:translate-x-1 transition-transform duration-300" />
               </a>
               <a
@@ -161,130 +165,59 @@ const Index = () => {
         </motion.a>
       </section>
 
-      {/* Concerns Section — panel bo góc lớn chứa thẻ trích dẫn màu */}
-      <section id="about-us" className="py-16 md:py-24 bg-background">
+      {/* Programs Section — 2 thẻ: Mầm non & Can thiệp (dẫn sang trang) */}
+      <section id="about-us" className="py-20 md:py-28 bg-background">
         <div className="container-full">
-          <div className="relative overflow-hidden rounded-[2rem] md:rounded-[3rem] bg-primary text-primary-foreground px-6 py-14 md:px-14 md:py-20">
-            {/* Khối trang trí bên trong panel */}
-            <div aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
-              <div className="absolute -top-16 -right-16 w-72 h-72 rounded-full bg-white/5" />
-              <div className="absolute -bottom-24 -left-10 w-80 h-80 rounded-full bg-secondary/10" />
-              <div className="absolute top-10 left-1/2 w-24 h-24 rounded-full border-2 border-white/10 hidden lg:block" />
-            </div>
-
-            <div className="relative grid lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-              {/* Tiêu đề bên trái */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="lg:col-span-5"
-              >
-                <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-accent mb-4">
-                  {t.concerns.label}
-                </p>
-                <h2 className="font-serif text-3xl md:text-5xl text-white leading-[1.08] mb-6">
-                  {t.concerns.title}
-                </h2>
-                <p className="font-serif text-lg md:text-xl text-accent leading-snug max-w-sm">
-                  {t.concerns.closing}
-                </p>
-              </motion.div>
-
-              {/* Thẻ trích dẫn bên phải */}
-              <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="lg:col-span-7 grid sm:grid-cols-2 gap-4"
-              >
-                {t.concerns.items.map((item, index) => (
-                  <motion.blockquote
-                    key={index}
-                    variants={itemVariants}
-                    className={cn(
-                      "relative rounded-3xl p-6 pt-9 shadow-md",
-                      quoteCardStyles[index % quoteCardStyles.length],
-                      // thẻ cuối lệch cho có nhịp
-                      index === t.concerns.items.length - 1 && "sm:col-span-2"
-                    )}
-                  >
-                    <span
-                      aria-hidden
-                      className="absolute top-3 left-5 font-serif text-5xl leading-none opacity-25 select-none"
-                    >
-                      &ldquo;
-                    </span>
-                    <p className="font-serif text-base md:text-lg leading-relaxed italic">
-                      {item}
-                    </p>
-                    <footer className="mt-4 text-xs font-semibold tracking-wide uppercase opacity-70">
-                      — {language === "vi" ? "Một người cha, người mẹ" : "A parent"}
-                    </footer>
-                  </motion.blockquote>
-                ))}
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Us Section — lưới card có ảnh */}
-      <section className="py-20 md:py-28 bg-background">
-        <div className="container-full">
-          {/* Tiêu đề + mô tả (căn giữa) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center max-w-3xl mx-auto mb-14"
+            className="text-center max-w-2xl mx-auto mb-12 md:mb-16"
           >
             <p className="text-[11px] font-semibold tracking-[0.3em] uppercase text-primary mb-3">
-              {t.whyUs.label}
+              {language === "vi" ? "Chương trình" : "Programs"}
             </p>
-            <h2 className="font-serif text-3xl md:text-5xl text-foreground leading-[1.05] mb-5">
-              {t.whyUs.title}{" "}
-              <span className="text-primary">— {t.whyUs.titleHighlight}</span>
+            <h2 className="font-serif text-3xl md:text-5xl text-foreground leading-[1.05]">
+              {language === "vi" ? "Hai chương trình cho con" : "Two programs for your child"}
             </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              {t.whyUs.description}
-            </p>
           </motion.div>
 
-          {/* Lưới card */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5"
+            className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-5xl mx-auto"
           >
-            {t.whyUs.items.map((item, index) => (
-              <motion.div key={item.title} variants={itemVariants} className="h-full">
-                <div className="group flex h-full flex-col rounded-3xl bg-secondary/15 p-3 pb-6 shadow-sm hover:shadow-lg transition-shadow duration-300">
-                  {/* Ảnh */}
-                  <div className="rounded-2xl overflow-hidden aspect-[4/3] mb-5">
+            {programCards.map((c) => (
+              <motion.div key={c.to} variants={itemVariants} className="h-full">
+                <Link
+                  to={c.to}
+                  className="group flex h-full flex-col rounded-[2rem] overflow-hidden bg-card border border-border/60 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
+                >
+                  <div className="relative aspect-[16/10] overflow-hidden">
                     <img
-                      src={whyImages[index % whyImages.length]}
-                      alt={item.title}
+                      src={c.image}
+                      alt={c.title[language]}
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-[1.2s] group-hover:scale-105"
                     />
-                  </div>
-
-                  {/* Nội dung */}
-                  <div className="flex flex-1 flex-col px-3">
-                    <h3 className="font-serif text-base md:text-lg font-bold uppercase leading-snug text-foreground mb-3">
-                      {item.title}
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/65 via-foreground/10 to-transparent" />
+                    <h3 className="absolute bottom-5 left-6 font-serif text-2xl md:text-3xl font-bold text-white">
+                      {c.title[language]}
                     </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {item.description}
-                    </p>
                   </div>
-                </div>
+                  <div className="flex flex-1 flex-col p-6 md:p-7">
+                    <p className="text-muted-foreground leading-relaxed mb-5">
+                      {c.desc[language]}
+                    </p>
+                    <span className="mt-auto inline-flex items-center gap-2 font-semibold text-primary group-hover:gap-3 transition-all duration-300">
+                      {language === "vi" ? "Tìm hiểu thêm" : "Learn more"}
+                      <ArrowRight className="w-4 h-4" />
+                    </span>
+                  </div>
+                </Link>
               </motion.div>
             ))}
           </motion.div>

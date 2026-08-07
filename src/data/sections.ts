@@ -126,9 +126,6 @@ export const sections: Record<Language, SectionContent> = {
       items: [
         { tag: "Montessori", name: "Học qua giáo cụ", description: "Trẻ tự khám phá với bộ giáo cụ Montessori, rèn tính tự lập, tập trung và kỷ luật nội tâm." },
         { tag: "STEAM", name: "Khoa học & sáng tạo", description: "Học Khoa học – Công nghệ – Kỹ thuật – Nghệ thuật – Toán qua dự án và trải nghiệm thực tế." },
-        { tag: "Reggio", name: "Học theo dự án", description: "Lấy trẻ làm trung tâm, khơi gợi tò mò và tư duy qua các dự án theo hứng thú của con." },
-        { tag: "Play", name: "Học qua chơi", description: "Vui chơi có định hướng giúp con phát triển ngôn ngữ, vận động và kỹ năng xã hội tự nhiên." },
-        { tag: "SEL", name: "Kỹ năng & cảm xúc", description: "Giáo dục cảm xúc – xã hội giúp con tự tin, biết chia sẻ và hợp tác cùng bạn bè." },
       ],
     },
     register: {
@@ -195,9 +192,6 @@ export const sections: Record<Language, SectionContent> = {
       items: [
         { tag: "Montessori", name: "Learning with materials", description: "Children explore with Montessori materials, building independence, focus and inner discipline." },
         { tag: "STEAM", name: "Science & creativity", description: "Science, Technology, Engineering, Arts and Maths through hands-on projects and real experiences." },
-        { tag: "Reggio", name: "Project-based learning", description: "Child-led learning that sparks curiosity and thinking through interest-driven projects." },
-        { tag: "Play", name: "Play-based learning", description: "Guided play develops language, motor and social skills naturally." },
-        { tag: "SEL", name: "Skills & emotions", description: "Social-emotional learning helps children be confident, share and cooperate with friends." },
       ],
     },
     register: {
